@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>《计算机网络 自顶向下方法》 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="第二章 应用层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络 自顶向下方法》">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章 应用层">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-28T06:51:01.000Z">
+<meta property="article:modified_time" content="2020-05-28T08:50:22.286Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,15 +164,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-我的第二篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-我的第二篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
+    <h1 class="article-title" itemprop="name">
+      《计算机网络 自顶向下方法》
     </h1>
   
 
@@ -180,12 +184,346 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h1>
-        
-          <a class="article-more-a" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
+        <h1 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h1><a id="more"></a>
+<h2 id="网络应用的体系结构"><a href="#网络应用的体系结构" class="headerlink" title="网络应用的体系结构"></a>网络应用的体系结构</h2><ul>
+<li><p>客户机/服务器结构(Client-Server,C/S)   </p>
+<ul>
+<li><p>服务器   </p>
+<ul>
+<li>7*24小时提供服务   </li>
+<li>永久性访问地址/域名    </li>
+<li>利用大量服务器实现可扩展性   </li>
+</ul>
+</li>
+<li><p>客户机   </p>
+<ul>
+<li>与服务器通信，使用服务器提供的服务   </li>
+<li>间歇性接入网络</li>
+<li>可能使用动态IP地址</li>
+<li>不会与其他客户机直接通信</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="点对点结构-Peer-to-peer-P2P"><a href="#点对点结构-Peer-to-peer-P2P" class="headerlink" title="点对点结构(Peer-to-peer, P2P)"></a>点对点结构(Peer-to-peer, P2P)</h2><ul>
+<li>没有永远在线的服务器   </li>
+<li>任意端系统/节点之间可以直接通讯   </li>
+<li>节点间歇性接入网络</li>
+<li>节点可能改变IP地址</li>
+<li>优点： 高度可伸缩</li>
+<li>缺点： 难于管理</li>
+</ul>
+<h2 id="混合结构-Hybrid"><a href="#混合结构-Hybrid" class="headerlink" title="混合结构(Hybrid)"></a>混合结构(Hybrid)</h2><ul>
+<li>Napster<ul>
+<li>文件传输使用P2P结构</li>
+<li>文件的搜索采用C/S结构——集中式</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><ul>
+<li>进程：主机上运行的程序<ul>
+<li>客户机进程: 发起通信的进程</li>
+<li>服务器进程: 等待通信请求的进程</li>
+</ul>
+</li>
+<li>同一主机上运行的进程之间如何通信？<ul>
+<li>进程间通信机制</li>
+<li>操作系统提供</li>
+</ul>
+</li>
+<li>不同主机上运行的进程间如何通信？<ul>
+<li>消息交换</li>
+</ul>
+</li>
+<li>进程间通信利用socket发送/接收消息实现</li>
+<li>进程的标识符：IP地址+端口号</li>
+</ul>
+<h2 id="Internet提供的传输服务"><a href="#Internet提供的传输服务" class="headerlink" title="Internet提供的传输服务"></a>Internet提供的传输服务</h2><ul>
+<li>TCP服务<ul>
+<li>面向连接: 客户机/服务器进程间需要建立连接</li>
+<li>可靠的传输</li>
+<li>流量控制: 发送方不会发送速度过快，超过接收方的处理能力</li>
+<li>拥塞控制: 当网络负载过重时能够限制发送方的发送速度</li>
+<li>不提供时间/延迟保障</li>
+<li>不提供最小带宽保障</li>
+</ul>
+</li>
+<li>UDP服务<ul>
+<li>无连接</li>
+<li>不可靠的数据传输</li>
+<li>不提供可靠性保障</li>
+<li>不提供流量控制</li>
+<li>不提供拥塞控制</li>
+<li>不提供延迟保障</li>
+<li>不提供带宽保障</li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP使用TCP传输服务"><a href="#HTTP使用TCP传输服务" class="headerlink" title="HTTP使用TCP传输服务"></a>HTTP使用TCP传输服务</h2><ul>
+<li>服务器在80端口等待客户的请求</li>
+<li>浏览器发起到服务器的TCP连接(创建套接字Socket)</li>
+<li>服务器接受来自浏览器的TCP连接</li>
+<li>浏览器(HTTP客户端)与Web服务器(HTTP服务器)交换HTTP消息</li>
+<li>关闭TCP连接 </li>
+</ul>
+<h2 id="HTTP是无状态协议"><a href="#HTTP是无状态协议" class="headerlink" title="HTTP是无状态协议"></a>HTTP是无状态协议</h2><h2 id="HTTP连接的两种类型"><a href="#HTTP连接的两种类型" class="headerlink" title="HTTP连接的两种类型"></a>HTTP连接的两种类型</h2><ul>
+<li>非持久性连接(NonpersistentHTTP)：每个TCP连接最多允许传输一个对象。</li>
+<li>持久性连接(Persistent HTTP)：每个TCP连接允许传输多个对象。</li>
+</ul>
+<h2 id="HTTP请求报文"><a href="#HTTP请求报文" class="headerlink" title="HTTP请求报文"></a>HTTP请求报文</h2><pre><code>GET /somedir/page.html HTTP/1.1   
+Host: www.someschool.edu   
+User-agent: Mozilla/4.0   
+Connection: close   
+Accept-language:fr</code></pre><ul>
+<li>第一行叫做请求行，其后续的行叫做首部行。</li>
+<li>请求行有3个字段：方法字段（GET/POST）、URL字段（/somedir/page.html）和HTTP版本字段（HTTP/1.1)。</li>
+<li>Host: <a href="http://www.someschool.edu：指明了对象所在的主机。">www.someschool.edu：指明了对象所在的主机。</a></li>
+<li>User-agent: Mozilla/4.0：指明用户代理，即向服务器发送请求的浏览器的类型。</li>
+<li>Connection: close：告诉服务器不要麻烦的使用持续连续。</li>
+<li>Accept-language：表示用户想得到该对象的语言版本。</li>
+</ul>
+<h2 id="HTTP相应报文"><a href="#HTTP相应报文" class="headerlink" title="HTTP相应报文"></a>HTTP相应报文</h2><pre><code>HTTP/1.1 200 OK
+Connection: close
+Date: Thu, 06 Aug 1998 12:00:15 GMT
+Server: Apache/1.3.0 (Unix)
+Last-Modified: Mon, 22 Jun 1998 …...
+Content-Length: 6821
+Content-Type: text/html
+
+data data data data data ...</code></pre><ul>
+<li>一个初始状态行，六个首部行，然后是实体体。</li>
+<li>状态行有3个字段：协议版本字段，状态码和相应的状态信息。</li>
+<li>Connection: close：告诉客户发送完报文后将关闭该TCP连接。</li>
+<li>Date：指示服务器产生并发送该相应报文的日期和时间。</li>
+<li>Server：指示该报文是由一台Apache Web服务器产生的。</li>
+<li>Last-Modified：指示对象创建或者最后修改的日期和时间。</li>
+<li>Content-Length：指示被发送对象中的字节数。</li>
+<li>Content-Type：指示实体体中的对象文本。</li>
+</ul>
+<h2 id="Cookie技术"><a href="#Cookie技术" class="headerlink" title="Cookie技术"></a>Cookie技术</h2><ul>
+<li>某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）。</li>
+<li>Cookie的组件<ul>
+<li>HTTP响应消息的cookie头部行</li>
+<li>HTTP请求消息的cookie头部行</li>
+<li>保存在客户端主机上的cookie文件，由浏览器管理</li>
+<li>Web服务器端的后台数据库</li>
+</ul>
+</li>
+</ul>
+<h2 id="Web缓存-代理服务器技术"><a href="#Web缓存-代理服务器技术" class="headerlink" title="Web缓存/代理服务器技术"></a>Web缓存/代理服务器技术</h2><ul>
+<li>功能：在不访问服务器的前提下满足客户端的HTTP请求。</li>
+<li>优点：<ul>
+<li>缩短客户请求的响应时间</li>
+<li>减少机构/组织的流量</li>
+<li>在大范围内(Internet)实现有效的内容分发</li>
+</ul>
+</li>
+<li>过程:<ul>
+<li>用户设定浏览器通过缓存进行Web访问</li>
+<li>浏览器向缓存/代理服务器发送所有的HTTP请求<ul>
+<li>如果所请求对象在缓存中，缓存返回对象。</li>
+<li>否则，缓存服务器向原始服务器发送HTTP请求，获取对象，然后返给客户端并保存该对象。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存既充当客户端，也充当服务器</li>
+</ul>
+<h2 id="条件性GET方法"><a href="#条件性GET方法" class="headerlink" title="条件性GET方法"></a>条件性GET方法</h2><ul>
+<li>目标：<ul>
+<li>如果缓存有最新的版本，则不需要发送请求对象</li>
+</ul>
+</li>
+<li>缓存：<ul>
+<li>在HTTP请求消息中声明所持有版本的日期</li>
+<li>If-modified-since: <date></li>
+</ul>
+</li>
+<li>服务器：<ul>
+<li>如果缓存的版本是最新的，则响应消息中不包含对象</li>
+<li>HTTP/1.0 304 Not Modified</li>
+</ul>
+</li>
+</ul>
+<h2 id="Email应用的构成组件"><a href="#Email应用的构成组件" class="headerlink" title="Email应用的构成组件"></a>Email应用的构成组件</h2><ul>
+<li>邮件客户端(user agent)</li>
+<li>邮件服务器</li>
+<li>SMTP协议(Simple Mail Transfer Protocol)</li>
+</ul>
+<h2 id="SMTP协议"><a href="#SMTP协议" class="headerlink" title="SMTP协议"></a>SMTP协议</h2><ul>
+<li>email消息的传输/交换协议</li>
+<li>使用TCP进行email消息的可靠传输</li>
+<li>端口25</li>
+<li>传输过程的三个阶段<ul>
+<li>握手</li>
+<li>消息的传输</li>
+<li>关闭</li>
+</ul>
+</li>
+<li>命令/响应交互模式<ul>
+<li>命令(command): ASCII文本</li>
+<li>响应(response): 状态代码和语句</li>
+</ul>
+</li>
+<li>Email消息只能包含7位ASCII码</li>
+<li>使用持久性连接</li>
+</ul>
+<h2 id="SMTP协议与HTTP协议对比"><a href="#SMTP协议与HTTP协议对比" class="headerlink" title="SMTP协议与HTTP协议对比"></a>SMTP协议与HTTP协议对比</h2><ul>
+<li>HTTP: 拉式(pull)</li>
+<li>SMTP: 退式(push)</li>
+<li>都使用命令/响应交互模式</li>
+<li>命令和状态代码都是ASCII码</li>
+<li>HTTP: 每个对象封装在独立的响应消息中</li>
+<li>SMTP: 多个对象在由多个部分构成的消息中发送</li>
+</ul>
+<h2 id="Email消息格式"><a href="#Email消息格式" class="headerlink" title="Email消息格式"></a>Email消息格式</h2><ul>
+<li>头部行(header)<ul>
+<li>To</li>
+<li>From</li>
+<li>Subject</li>
+</ul>
+</li>
+<li>消息体(body)<ul>
+<li>消息本身</li>
+<li>只能是ASCII字符</li>
+</ul>
+</li>
+</ul>
+<h2 id="POP协议"><a href="#POP协议" class="headerlink" title="POP协议"></a>POP协议</h2><p>取报文是一个拉操作，而SMTP协议是一个推协议，POP3、HTTP解决这个难题，将邮件服务器上的邮件下载到本地。</p>
+<ul>
+<li>POP3是邮件访问协议。</li>
+<li>“下载并删除”模式：用户如果换了客户端软件，无法重读该邮件。</li>
+<li>“下载并保持”模式：不同客户端都可以保留消息的拷贝。</li>
+<li>POP3是无状态的</li>
+</ul>
+<h2 id="IMAP协议"><a href="#IMAP协议" class="headerlink" title="IMAP协议"></a>IMAP协议</h2><ul>
+<li>所有消息统一保存在一个地方：服务器</li>
+<li>允许用户利用文件夹组织消息</li>
+<li>MAP支持跨会话(Session)的用户状态:<ul>
+<li>文件夹的名字</li>
+<li>文件夹与消息ID之间的映射等</li>
+</ul>
+</li>
+</ul>
+<h2 id="分布式DNS服务"><a href="#分布式DNS服务" class="headerlink" title="分布式DNS服务"></a>分布式DNS服务</h2><ul>
+<li>域名向IP地址的翻译</li>
+<li>主机别名</li>
+<li>邮件服务器别名</li>
+<li>负载均衡： Web服务器</li>
+</ul>
+<h2 id="为什么不使用集中式的DNS？"><a href="#为什么不使用集中式的DNS？" class="headerlink" title="为什么不使用集中式的DNS？"></a>为什么不使用集中式的DNS？</h2><ul>
+<li>单点失败问题</li>
+<li>流量问题</li>
+<li>距离问题</li>
+<li>维护性问题</li>
+</ul>
+<h2 id="DNS记录缓存和更新"><a href="#DNS记录缓存和更新" class="headerlink" title="DNS记录缓存和更新"></a>DNS记录缓存和更新</h2><ul>
+<li>只要域名解析服务器获得域名—IP映射，即缓存这一映射<ul>
+<li>一段时间过后，缓存条目失效（删除）</li>
+<li>本地域名服务器一般会缓存顶级域名服务器的映射<ul>
+<li>因此根域名服务器不经常被访问</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>记录的更新/通知机制<ul>
+<li>RFC 2136</li>
+<li>Dynamic Updates in the Domain Name System (DNS UPDATE)</li>
+</ul>
+</li>
+</ul>
+<h2 id="DNS记录"><a href="#DNS记录" class="headerlink" title="DNS记录"></a>DNS记录</h2><ul>
+<li>(name, value, type, ttl)</li>
+<li>Type=A<ul>
+<li>Name: 主机域名</li>
+<li>Value: IP地址</li>
+</ul>
+</li>
+<li>Type=NS<ul>
+<li>Name: 域(edu.cn)</li>
+<li>Value: 该域权威域名解析服务器的主机域名</li>
+</ul>
+</li>
+<li>Type=CNAME<ul>
+<li>Name: 某一真实域名的别名</li>
+<li>Value: 真实域名</li>
+</ul>
+</li>
+<li>Type=MX<ul>
+<li>Value是与name相对应的邮件服务器</li>
+</ul>
+</li>
+</ul>
+<h2 id="P2P架构（Peer-to-peer）"><a href="#P2P架构（Peer-to-peer）" class="headerlink" title="P2P架构（Peer-to-peer）"></a>P2P架构（Peer-to-peer）</h2><ul>
+<li>没有服务器</li>
+<li>任意端系统之间直接通信</li>
+<li>节点阶段性接入Internet</li>
+<li>节点可能更换IP地址</li>
+</ul>
+<h2 id="BitTorrent"><a href="#BitTorrent" class="headerlink" title="BitTorrent"></a>BitTorrent</h2><ul>
+<li>文件划分为256KB的chunk</li>
+<li>节点加入torrent<ul>
+<li>没有chunk，但是会逐渐积累</li>
+<li>向tracker注册以获得节点清单，与某些节点（“邻居”）建立连接</li>
+</ul>
+</li>
+<li>下载的同时，节点需要向其他节点上传chunk</li>
+<li>节点可能加入或离开</li>
+<li>一旦节点获得完整的文件，它可能（自私地）离开或（无私地）留下</li>
+</ul>
+<h2 id="发送获取chunk"><a href="#发送获取chunk" class="headerlink" title="发送获取chunk"></a>发送获取chunk</h2><ul>
+<li>获取chunk<ul>
+<li>给定任一时刻，不同的节点持有文件的不同chunk集合</li>
+<li>节点(Alice)定期查询每个邻居所持有的chunk列表</li>
+<li>节点发送请求，请求获取缺失的chunk<ul>
+<li>稀缺优先</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发送chunk<ul>
+<li>向4个邻居发送chunk：正在向其发送Chunk，速率最快的4个<ul>
+<li>每10秒重新评估top4</li>
+</ul>
+</li>
+<li>每30秒随机选择一个其他节点，向其发送chunk<ul>
+<li>新选择节点可能加入top4</li>
+<li>“optimistically unchoke”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -205,16 +543,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《计算机网络 自顶向下方法》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -229,164 +626,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-23T03:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第一章-计算机网络和因特网"><a href="#第一章-计算机网络和因特网" class="headerlink" title="第一章 计算机网络和因特网"></a>第一章 计算机网络和因特网</h1>
-        
-          <a class="article-more-a" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-应用层"><span class="toc-number">1.</span> <span class="toc-text">第二章 应用层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络应用的体系结构"><span class="toc-number">1.1.</span> <span class="toc-text">网络应用的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点对点结构-Peer-to-peer-P2P"><span class="toc-number">1.2.</span> <span class="toc-text">点对点结构(Peer-to-peer, P2P)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合结构-Hybrid"><span class="toc-number">1.3.</span> <span class="toc-text">混合结构(Hybrid)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程间通信"><span class="toc-number">1.4.</span> <span class="toc-text">进程间通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet提供的传输服务"><span class="toc-number">1.5.</span> <span class="toc-text">Internet提供的传输服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP使用TCP传输服务"><span class="toc-number">1.6.</span> <span class="toc-text">HTTP使用TCP传输服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP是无状态协议"><span class="toc-number">1.7.</span> <span class="toc-text">HTTP是无状态协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP连接的两种类型"><span class="toc-number">1.8.</span> <span class="toc-text">HTTP连接的两种类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP请求报文"><span class="toc-number">1.9.</span> <span class="toc-text">HTTP请求报文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP相应报文"><span class="toc-number">1.10.</span> <span class="toc-text">HTTP相应报文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie技术"><span class="toc-number">1.11.</span> <span class="toc-text">Cookie技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web缓存-代理服务器技术"><span class="toc-number">1.12.</span> <span class="toc-text">Web缓存&#x2F;代理服务器技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件性GET方法"><span class="toc-number">1.13.</span> <span class="toc-text">条件性GET方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Email应用的构成组件"><span class="toc-number">1.14.</span> <span class="toc-text">Email应用的构成组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMTP协议"><span class="toc-number">1.15.</span> <span class="toc-text">SMTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMTP协议与HTTP协议对比"><span class="toc-number">1.16.</span> <span class="toc-text">SMTP协议与HTTP协议对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Email消息格式"><span class="toc-number">1.17.</span> <span class="toc-text">Email消息格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POP协议"><span class="toc-number">1.18.</span> <span class="toc-text">POP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IMAP协议"><span class="toc-number">1.19.</span> <span class="toc-text">IMAP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式DNS服务"><span class="toc-number">1.20.</span> <span class="toc-text">分布式DNS服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么不使用集中式的DNS？"><span class="toc-number">1.21.</span> <span class="toc-text">为什么不使用集中式的DNS？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS记录缓存和更新"><span class="toc-number">1.22.</span> <span class="toc-text">DNS记录缓存和更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS记录"><span class="toc-number">1.23.</span> <span class="toc-text">DNS记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P架构（Peer-to-peer）"><span class="toc-number">1.24.</span> <span class="toc-text">P2P架构（Peer-to-peer）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BitTorrent"><span class="toc-number">1.25.</span> <span class="toc-text">BitTorrent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送获取chunk"><span class="toc-number">1.26.</span> <span class="toc-text">发送获取chunk</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/23/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-23T00:16:56.581Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/23/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -412,8 +677,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
