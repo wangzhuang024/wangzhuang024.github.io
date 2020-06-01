@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>《计算机网络 自顶向下方法》 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="第三章 运输层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络 自顶向下方法》">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章 运输层">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-01T01:01:27.000Z">
+<meta property="article:modified_time" content="2020-06-01T02:43:16.107Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,15 +164,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-我的第三篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-我的第三篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
+    <h1 class="article-title" itemprop="name">
+      《计算机网络 自顶向下方法》
     </h1>
   
 
@@ -180,12 +184,327 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第三章-运输层"><a href="#第三章-运输层" class="headerlink" title="第三章 运输层"></a>第三章 运输层</h1>
-        
-          <a class="article-more-a" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
+        <h1 id="第三章-运输层"><a href="#第三章-运输层" class="headerlink" title="第三章 运输层"></a>第三章 运输层</h1><a id="more"></a>
+<h2 id="传输层服务和协议"><a href="#传输层服务和协议" class="headerlink" title="传输层服务和协议"></a>传输层服务和协议</h2><ul>
+<li>传输层协议为运行在不同主机上的进程提供了一种逻辑通信机制。</li>
+<li>端系统运行传输层协议<ul>
+<li>发送方：将应用递交的消息分成一个或多个的Segment，并向下传给网络层。</li>
+<li>接收方：将接收到的segment组装成消息，并向上交给应用层。</li>
+</ul>
+</li>
+<li>传输层可以为应用提供多种协议<ul>
+<li>Internet上的TCP</li>
+<li>Internet上的UDP</li>
+</ul>
+</li>
+</ul>
+<h2 id="传输层-vs-网络层"><a href="#传输层-vs-网络层" class="headerlink" title="传输层 vs. 网络层"></a>传输层 vs. 网络层</h2><ul>
+<li>网络层：提供主机之间的逻辑通信机制。</li>
+<li>传输层：提供应用进程之间的逻辑通信机制。<ul>
+<li>位于网络层之上</li>
+<li>依赖于网络层服务</li>
+<li>对网络层服务进行（可能的）增强</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP-vs-UCP"><a href="#TCP-vs-UCP" class="headerlink" title="TCP vs. UCP"></a>TCP vs. UCP</h2><ul>
+<li>可靠、按序的交付服务(TCP)<ul>
+<li>拥塞控制</li>
+<li>流量控制</li>
+<li>连接建立</li>
+</ul>
+</li>
+<li>不可靠的交付服务(UDP)<ul>
+<li>基于“尽力而为(Best-effort)”的网络层，没有做（可靠性方面的）扩展。</li>
+</ul>
+</li>
+<li>两种服务均不保证<ul>
+<li>延迟</li>
+<li>带宽</li>
+</ul>
+</li>
+</ul>
+<h2 id="多路复用-分用"><a href="#多路复用-分用" class="headerlink" title="多路复用/分用"></a>多路复用/分用</h2><ul>
+<li>如果某层的一个协议对应直接上层的多个协议/实体，则需要复用/分用。</li>
+<li>接收端进行多路分用:传输层依据头部信息将收到的Segment交给正确的Socket，即不同的进程。</li>
+<li>发送端进行多路复用:从多个Socket接收数据，为每块数据封装上头部信息，生成Segment，交给网络层。</li>
+</ul>
+<h2 id="分用如何工作？"><a href="#分用如何工作？" class="headerlink" title="分用如何工作？"></a>分用如何工作？</h2><ul>
+<li>主机接收到IP数据报(datagram)<ul>
+<li>每个数据报携带源IP地址、目的IP地址。</li>
+<li>每个数据报携带一个传输层的段(Segment）。</li>
+<li>每个段携带源端口号和目的端口号。</li>
+</ul>
+</li>
+<li>主机收到Segment之后，传输层协议提取IP地址和端口号信息，将Segment导向相应的Socket。<ul>
+<li>TCP做更多处理</li>
+</ul>
+</li>
+</ul>
+<h2 id="无连接分用"><a href="#无连接分用" class="headerlink" title="无连接分用"></a>无连接分用</h2><ul>
+<li>利用端口号创建Socket<ul>
+<li>DatagramSocket mySocket1 = new DatagramSocket(99111);</li>
+<li>DatagramSocket mySocket2 = new DatagramSocket(99222);</li>
+</ul>
+</li>
+<li>UDP的Socket用二元组标识<ul>
+<li>(目的IP地址，目的端口号)</li>
+</ul>
+</li>
+<li>主机收到UDP段后<ul>
+<li>检查段中的目的端口号</li>
+<li>将UDP段导向绑定在该端口号的Socket</li>
+</ul>
+</li>
+<li>来自不同源IP地址和/或源端口号的IP数据包被导向同一个Socket。</li>
+</ul>
+<h2 id="面向连接的分用"><a href="#面向连接的分用" class="headerlink" title="面向连接的分用"></a>面向连接的分用</h2><ul>
+<li>TCP的Socket用四元组标识。<ul>
+<li>源IP地址</li>
+<li>源端口号</li>
+<li>目的IP地址</li>
+<li>目的端口号</li>
+</ul>
+</li>
+<li>接收端利用所有的四个值将Segment导向合适的Socket。</li>
+<li>服务器可能同时支持多个TCPSocket。<ul>
+<li>每个Socket用自己的四元组标识</li>
+</ul>
+</li>
+<li>Web服务器为每个客户端开不同的Socket。</li>
+</ul>
+<h2 id="UDP的优点"><a href="#UDP的优点" class="headerlink" title="UDP的优点"></a>UDP的优点</h2><ul>
+<li>无需建立连接 (减少延迟)</li>
+<li>实现简单：无需维护连接状态</li>
+<li>头部开销少</li>
+<li>没有拥塞控制: 应用可更好地控制发送时间和速率</li>
+</ul>
+<h2 id="UDP校验和"><a href="#UDP校验和" class="headerlink" title="UDP校验和"></a>UDP校验和</h2><ul>
+<li>目的：检测UDP段在传输中是否发生错误（如位翻转）</li>
+<li>发送方：<ul>
+<li>将段的内容视为16-bit整数</li>
+<li>校验和计算：计算所有整数的和，进位加在和的后面，将得到的值按位求反，得到校验和</li>
+<li>发送方将校验和放入校验和字段</li>
+</ul>
+</li>
+<li>接收方<ul>
+<li>计算所收到段的校验和</li>
+<li>将其与校验和字段进行对比<ul>
+<li>不相等：检测出错误</li>
+<li>相等：没有检测出错误（但可能有错误）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="流水线协议"><a href="#流水线协议" class="headerlink" title="流水线协议"></a>流水线协议</h2><ul>
+<li>允许发送方在收到ACK之前连续发送多个分组<ul>
+<li>更大的序列号范围</li>
+<li>发送方和/或接收方需要更大的存储空间以缓存分组</li>
+</ul>
+</li>
+</ul>
+<h2 id="滑动窗口协议"><a href="#滑动窗口协议" class="headerlink" title="滑动窗口协议"></a>滑动窗口协议</h2><ul>
+<li>窗口<ul>
+<li>允许使用的序列号范围</li>
+<li>窗口尺寸为N：最多有N个等待确认的消</li>
+</ul>
+</li>
+<li>滑动窗口<ul>
+<li>随着协议的运行，窗口在序列号空间内向前滑动</li>
+<li>滑动窗口协议：GBN, SR </li>
+</ul>
+</li>
+</ul>
+<h2 id="Go-Back-N协议"><a href="#Go-Back-N协议" class="headerlink" title="Go-Back-N协议"></a>Go-Back-N协议</h2><ul>
+<li>发送方：<ul>
+<li>分组头部包含k-bit序列号</li>
+<li>窗口尺寸为N，最多允许N个分组未确认</li>
+<li>ACK(n): 确认到序列号n(包含n)的分组均已被正确接收</li>
+<li>为空中的分组设置计时器(timer)</li>
+<li>超时Timeout(n)事件:<strong>重传序列号大于等于n，还未收到ACK的所有分组</strong></li>
+</ul>
+</li>
+<li>接收方：<ul>
+<li>ACK机制: 发送拥有最高序列号的、已被正确接收的分组的ACK<ul>
+<li>可能产生重复ACK</li>
+<li>只需要记住唯一的expectedseqnum</li>
+</ul>
+</li>
+<li>乱序到达的分组：<ul>
+<li>直接丢弃接收方没有缓存</li>
+<li>重新确认序列号最大的、按序到达的分组</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP概述"><a href="#TCP概述" class="headerlink" title="TCP概述"></a>TCP概述</h2><ul>
+<li>点对点<ul>
+<li>一个发送方，一个接收方</li>
+</ul>
+</li>
+<li>可靠的、按序的字节流</li>
+<li>流水线机制<ul>
+<li>TCP拥塞控制和流量控制机制设置窗口尺寸</li>
+</ul>
+</li>
+<li>发送方/接收方缓存</li>
+<li>全双工(full-duplex)<ul>
+<li>同一连接中能够传输双向数据流</li>
+</ul>
+</li>
+<li>面向连接<ul>
+<li>通信双方在发送数据之前必须建立连接。</li>
+<li>连接状态只在连接的两端中维护，在沿途节点中并不维护状态。</li>
+<li>TCP连接包括：两台主机上的缓存、连接状态变量、socket等</li>
+</ul>
+</li>
+<li>流量控制机制</li>
+</ul>
+<h2 id="TCP-序列号和ACK"><a href="#TCP-序列号和ACK" class="headerlink" title="TCP: 序列号和ACK"></a>TCP: 序列号和ACK</h2><ul>
+<li>序列号:<ul>
+<li>序列号指的是segment中第一个字节的编号，而不是segment的编号</li>
+<li>建立TCP连接时，双方随机选择序列号</li>
+</ul>
+</li>
+<li>ACKs:<ul>
+<li>希望接收到的下一个字节的序列号</li>
+<li>累计确认：该序列号之前的所有字节均已被正确接收到</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP可靠数据传输概述"><a href="#TCP可靠数据传输概述" class="headerlink" title="TCP可靠数据传输概述"></a>TCP可靠数据传输概述</h2><ul>
+<li>TCP在IP层提供的不可靠服务基础上实现可靠数据传输服务</li>
+<li>流水线机制</li>
+<li>累积确认</li>
+<li>TCP使用单一重传定时器</li>
+<li>触发重传的事件<ul>
+<li>超时</li>
+<li>收到重复ACK</li>
+</ul>
+</li>
+<li>渐进式<ul>
+<li>暂不考虑重复ACK</li>
+<li>暂不考虑流量控制</li>
+<li>暂不考虑拥塞控制</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP发送方事件"><a href="#TCP发送方事件" class="headerlink" title="TCP发送方事件"></a>TCP发送方事件</h2><ul>
+<li>从应用层收到数据<ul>
+<li>创建Segment</li>
+<li>序列号是Segment第一个字节的编号</li>
+<li>开启计时器</li>
+<li>设置超时时间：TimeOutInterval</li>
+</ul>
+</li>
+<li>超时<ul>
+<li>重传引起超时的Segment</li>
+<li>重启定时器</li>
+</ul>
+</li>
+<li>收到ACK<ul>
+<li>如果确认此前未确认的Segment</li>
+<li>更新SendBase</li>
+<li>如果窗口中还有未被确认的分组，重新启动定时器</li>
+</ul>
+</li>
+</ul>
+<h2 id="快速重传机制"><a href="#快速重传机制" class="headerlink" title="快速重传机制"></a>快速重传机制</h2><ul>
+<li>TCP的实现中，如果发生超时，超时时间间隔将重新设置，即将超时时间间隔加倍，导致其很大<ul>
+<li>重发丢失的分组之前要等待很长时间</li>
+</ul>
+</li>
+<li>通过重复ACK检测分组丢失<ul>
+<li>Sender会背靠背地发送多个分组</li>
+<li>如果某个分组丢失，可能会引发多个重复的ACK</li>
+</ul>
+</li>
+<li>如果sender收到对同一数据的3个ACK，则假定该数据之后的段已经丢失<ul>
+<li>快速重传：在定时器超时之前即进行重传</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><ul>
+<li>接收方为TCP连接分配buffer</li>
+<li>上层应用可能处理buffer中数据的速度较慢</li>
+<li>速度匹配机制</li>
+<li>发送方不会传输的太多、太快以至于淹没接收方</li>
+</ul>
+<h2 id="拥塞"><a href="#拥塞" class="headerlink" title="拥塞"></a>拥塞</h2><ul>
+<li>非正式定义：“太多发送主机发送了太多数据或者发送速度太快，以至于网络无法处理”</li>
+<li>表现：<ul>
+<li>分组丢失（路由器缓存溢出）</li>
+<li>分组延迟过大（在路由器缓存中排队）</li>
+</ul>
+</li>
+<li>拥塞控制的方法<ul>
+<li>端到端拥塞控制：<ul>
+<li>网络层不需要显式的提供支持</li>
+<li>端系统通过观察loss，delay等网络行为判断是否发生拥塞</li>
+<li>TCP采取这种方法</li>
+</ul>
+</li>
+<li>网络辅助的拥塞控制：<ul>
+<li>路由器向发送方显式地反馈网络拥塞信息</li>
+<li>简单的拥塞指示(1bit)：SNA,DECbit, TCP/IP ECN, ATM)</li>
+<li>指示发送方应该采取何种速率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如何感知网络拥塞？<ul>
+<li>Loss事件=timeout或3个重复ACK</li>
+<li>发生loss事件后，发送方降低速率</li>
+</ul>
+</li>
+<li>如何合理地调整发送速率？<ul>
+<li>加性增—乘性减: AIMD（逐渐增加发送速率，谨慎探测可用带宽，直到发生loss）<ul>
+<li>方法: AIMD<ul>
+<li>Additive Increase: 每个RTT将CongWin增大一个MSS——拥塞避免</li>
+<li>Multiplicative Decrease: 发生loss后将CongWin减半</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>慢启动: SS（当连接开始时，指数性增长）<ul>
+<li>指数性增长</li>
+<li>初始速率很慢，但是快速攀升</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -205,16 +524,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《计算机网络 自顶向下方法》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -229,240 +607,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第二篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-28T06:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h1>
-        
-          <a class="article-more-a" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-运输层"><span class="toc-number">1.</span> <span class="toc-text">第三章 运输层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#传输层服务和协议"><span class="toc-number">1.1.</span> <span class="toc-text">传输层服务和协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传输层-vs-网络层"><span class="toc-number">1.2.</span> <span class="toc-text">传输层 vs. 网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-vs-UCP"><span class="toc-number">1.3.</span> <span class="toc-text">TCP vs. UCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多路复用-分用"><span class="toc-number">1.4.</span> <span class="toc-text">多路复用&#x2F;分用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分用如何工作？"><span class="toc-number">1.5.</span> <span class="toc-text">分用如何工作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无连接分用"><span class="toc-number">1.6.</span> <span class="toc-text">无连接分用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向连接的分用"><span class="toc-number">1.7.</span> <span class="toc-text">面向连接的分用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP的优点"><span class="toc-number">1.8.</span> <span class="toc-text">UDP的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP校验和"><span class="toc-number">1.9.</span> <span class="toc-text">UDP校验和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流水线协议"><span class="toc-number">1.10.</span> <span class="toc-text">流水线协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动窗口协议"><span class="toc-number">1.11.</span> <span class="toc-text">滑动窗口协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-Back-N协议"><span class="toc-number">1.12.</span> <span class="toc-text">Go-Back-N协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP概述"><span class="toc-number">1.13.</span> <span class="toc-text">TCP概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-序列号和ACK"><span class="toc-number">1.14.</span> <span class="toc-text">TCP: 序列号和ACK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP可靠数据传输概述"><span class="toc-number">1.15.</span> <span class="toc-text">TCP可靠数据传输概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP发送方事件"><span class="toc-number">1.16.</span> <span class="toc-text">TCP发送方事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速重传机制"><span class="toc-number">1.17.</span> <span class="toc-text">快速重传机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP流量控制"><span class="toc-number">1.18.</span> <span class="toc-text">TCP流量控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拥塞"><span class="toc-number">1.19.</span> <span class="toc-text">拥塞</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-23T03:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第一章-计算机网络和因特网"><a href="#第一章-计算机网络和因特网" class="headerlink" title="第一章 计算机网络和因特网"></a>第一章 计算机网络和因特网</h1>
-        
-          <a class="article-more-a" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/23/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-23T00:16:56.581Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/23/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -488,8 +658,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
