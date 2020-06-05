@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>《计算机网络 自顶向下方法》 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="第六章 链路层和局域网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络 自顶向下方法》">
+<meta property="og:url" content="http://yoursite.com/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第六章 链路层和局域网">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-05T01:46:01.000Z">
+<meta property="article:modified_time" content="2020-06-05T08:24:02.214Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,35 +164,434 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-我的第五篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      《计算机网络 自顶向下方法》
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+
+        
+        <a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
   	<time datetime="2020-06-05T01:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第六章-链路层和局域网"><a href="#第六章-链路层和局域网" class="headerlink" title="第六章 链路层和局域网"></a>第六章 链路层和局域网</h1><a id="more"></a>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><ul>
+<li>主机和路由器：结点(nodes)</li>
+<li>连接相邻结点的通信信道：链路(links)<ul>
+<li>有线链路(wired links)</li>
+<li>无线链路(wireless links)</li>
+<li>局域网(LANs)</li>
+</ul>
+</li>
+<li>链路层(第2层)数据分组：帧(frame)，封装网络层数据报。</li>
+<li>数据链路层负责通过一条链路从一个节点向另一个物理链路直接相连的相邻结点传送数据报。</li>
+</ul>
+<h2 id="链路层服务"><a href="#链路层服务" class="headerlink" title="链路层服务"></a>链路层服务</h2><ul>
+<li>组帧(framing)<ul>
+<li>封装数据报构成数据帧，加首部和尾部</li>
+<li>帧同步</li>
+</ul>
+</li>
+<li>链路接入(link access)<ul>
+<li>如果是共享介质，需要解决信道接入(channel access)</li>
+<li>帧首部中的“MAC” 地址，用于标识帧的源和目的<ul>
+<li>不同于IP地址！</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相邻结点间可靠交付<ul>
+<li>在低误码率的有线链路上很少采用 (如光纤，某些双绞线等)</li>
+<li>无线链路：误码率高，需要可靠交付</li>
+</ul>
+</li>
+<li>流量控制(flow control)<ul>
+<li>协调(pacing)相邻的发送结点和接收</li>
+</ul>
+</li>
+<li>差错检测(error detection)<ul>
+<li>信号衰减和噪声会引起差错.</li>
+<li>接收端检测到差错:<ul>
+<li>通知发送端重传或者直接丢弃帧</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>差错纠正(error correction)<ul>
+<li>接收端直接纠正比特差错</li>
+</ul>
+</li>
+<li>全双工和半双工通信控制<ul>
+<li>全双工：链路两端结点同时双向传输</li>
+<li>半双工：链路两端结点交替双向传输</li>
+</ul>
+</li>
+</ul>
+<h2 id="网卡间通信"><a href="#网卡间通信" class="headerlink" title="网卡间通信"></a>网卡间通信</h2><ul>
+<li>发送端：<ul>
+<li>将数据报封装成帧</li>
+<li>增加差错检测比特，实现可靠数据传输和流量控制等.</li>
+</ul>
+</li>
+<li>接收端：<ul>
+<li>检测差错，实现可靠数据传输和流量控制等</li>
+<li>提取数据报，交付上层协议实体</li>
+</ul>
+</li>
+</ul>
+<h2 id="奇偶校验码"><a href="#奇偶校验码" class="headerlink" title="奇偶校验码"></a>奇偶校验码</h2><ul>
+<li>1比特校验位:<ul>
+<li>检测奇数位差错</li>
+</ul>
+</li>
+<li>二维奇偶校验:<ul>
+<li>检测奇数位差错、部分偶数位差错</li>
+<li>纠正同一行/列的奇数位错</li>
+</ul>
+</li>
+</ul>
+<h2 id="Internet校验和"><a href="#Internet校验和" class="headerlink" title="Internet校验和"></a>Internet校验和</h2><ul>
+<li>发送端:<ul>
+<li>将“数据” (校验内容)划分为16位的二进制“整数”序列</li>
+<li>求和(sum)：补码求和(最高位进位的“1”，返回最低位继续加）</li>
+<li>校验和(Checksum)：sum的反码</li>
+<li>放入分组(UDP、TCP、IP)的校验和字段</li>
+</ul>
+</li>
+<li>接收端:<ul>
+<li>与发送端相同算法计算</li>
+<li>计算得到的”checksum”：<ul>
+<li>为16位全0（或sum为16位全1）：无错</li>
+<li>否则：有错</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="循环冗余校验码"><a href="#循环冗余校验码" class="headerlink" title="循环冗余校验码"></a>循环冗余校验码</h2><ul>
+<li>检错能力更强大的差错编码</li>
+<li>广泛应用于实际网络</li>
+</ul>
+<h2 id="两类“链路”："><a href="#两类“链路”：" class="headerlink" title="两类“链路”："></a>两类“链路”：</h2><ul>
+<li>点对点链路<ul>
+<li>拨号接入的PPP</li>
+<li>以太网交换机与主机间的点对点链路</li>
+</ul>
+</li>
+<li>广播链路 (共享介质)<ul>
+<li>早期的总线以太网</li>
+<li>HFC的上行链路</li>
+<li>802.11无线局域网</li>
+</ul>
+</li>
+</ul>
+<h2 id="多路访问控制协议"><a href="#多路访问控制协议" class="headerlink" title="多路访问控制协议"></a>多路访问控制协议</h2><ul>
+<li>采用分布式算法决定结点如何共享信道，即决策结点何时可以传输数据</li>
+<li>必须基于信道本身，通信信道共享协调信息！<ul>
+<li>无带外信道用于协调</li>
+</ul>
+</li>
+<li>三大类：</li>
+<li>信道划分(channel partitioning)MAC协议<ul>
+<li>多路复用技术</li>
+<li>TDMA、 FDMA、 CDMA、 WDMA等</li>
+</ul>
+</li>
+<li>随机访问(random access)MAC协议<ul>
+<li>信道不划分，允许冲突</li>
+<li>采用冲突“恢复”机制</li>
+</ul>
+</li>
+<li>轮转(“taking turns” )MAC协议<ul>
+<li>结点轮流使用信道</li>
+</ul>
+</li>
+</ul>
+<h2 id="TDMA-time-division-multiple-access"><a href="#TDMA-time-division-multiple-access" class="headerlink" title="TDMA: time division multiple access"></a>TDMA: time division multiple access</h2><ul>
+<li>“周期性”接入信道</li>
+<li>每个站点在每个周期，占用固定长度的时隙(e.g.长度=分组传输时间)</li>
+<li>未用时隙空闲(idle)</li>
+</ul>
+<h2 id="FDMA-frequency-division-multiple-access"><a href="#FDMA-frequency-division-multiple-access" class="headerlink" title="FDMA: frequency division multiple access"></a>FDMA: frequency division multiple access</h2><ul>
+<li>信道频谱划分为若干频带(frequency bands)</li>
+<li>每个站点分配一个固定的频带</li>
+<li>无传输频带空闲</li>
+</ul>
+<h2 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h2><ul>
+<li>假定：<ul>
+<li>所有帧大小相同</li>
+<li>时间被划分为等长的时隙(每个时隙可以传输1个帧)</li>
+<li>结点只能在时隙开始时刻发送帧</li>
+<li>结点间时钟同步</li>
+<li>如果2个或2个以上结点在同一时隙发送帧，结点即检测到冲突</li>
+</ul>
+</li>
+<li>运行:<ul>
+<li>当结点有新的帧时，在下一个时隙(slot)发送<ul>
+<li>如果无冲突：该结点可以在下一个时隙继续发送新的帧</li>
+<li>如果冲突：该结点在下一个时隙以概率p重传该帧，直至成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优点:<ul>
+<li>单个结点活动时，可以连续以信道全部速率传输数据</li>
+<li>高度分散化：只需同步时隙</li>
+<li>简单</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>冲突，浪费时隙</li>
+<li>空闲时隙</li>
+<li>结点也许能以远小于分组传输时间检测到冲突</li>
+<li>时钟同步</li>
+</ul>
+</li>
+<li>效率(efficiency): 长期运行时，成功发送帧的时隙所占比例 (很多结点有很多帧待发送)</li>
+<li>最大效率= 1/e = 0.37</li>
+<li>最好情况: 信道被成功利用的时间仅占37%！</li>
+</ul>
+<h2 id="非时隙-纯-ALOHA协议"><a href="#非时隙-纯-ALOHA协议" class="headerlink" title="非时隙(纯)ALOHA协议"></a>非时隙(纯)ALOHA协议</h2><ul>
+<li>更加简单，无需同步</li>
+<li>当有新的帧生成时<ul>
+<li>立即发送</li>
+</ul>
+</li>
+<li>冲突可能性增大</li>
+<li>最大效率= 1/（2e） = 0.18</li>
+<li>比时隙ALOHA协议更差!</li>
+</ul>
+<h2 id="载波监听多路访问协议CSMA"><a href="#载波监听多路访问协议CSMA" class="headerlink" title="载波监听多路访问协议CSMA"></a>载波监听多路访问协议CSMA</h2><ul>
+<li>发送帧之前，监听信道(载波)：</li>
+<li>信道空闲：发送完整帧</li>
+<li>信道忙：推迟发送<ul>
+<li>1-坚持CSMA</li>
+<li>非坚持CSMA</li>
+<li>P-坚持CSMA</li>
+</ul>
+</li>
+<li>冲突可能仍然发生：信号传播延迟</li>
+<li>继续发送冲突帧：浪费信道资源</li>
+</ul>
+<h2 id="CSMA-CD协议"><a href="#CSMA-CD协议" class="headerlink" title="CSMA/CD协议"></a>CSMA/CD协议</h2><ul>
+<li>短时间内可以检测到冲突</li>
+<li>冲突后传输中止，减少信道浪费</li>
+<li>冲突检测:<ul>
+<li>有线局域网易于实现：测量信号强度，比较发射信号与接收信号</li>
+<li>无线局域网很难实现：接收信号强度淹没在本地发射信号强度下</li>
+</ul>
+</li>
+<li>“边发边听，不发不听”</li>
+</ul>
+<h2 id="轮转访问MAC协议"><a href="#轮转访问MAC协议" class="headerlink" title="轮转访问MAC协议"></a>轮转访问MAC协议</h2><ul>
+<li>轮询(polling):<ul>
+<li>主结点轮流“邀请”从属结点发送数据</li>
+<li>典型应用：“哑(dumb)” 从属设备</li>
+<li>问题：<ul>
+<li>轮询开销</li>
+<li>等待延迟</li>
+<li>单点故障</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>令牌传递(token passing):<ul>
+<li>控制令牌依次从一个结点传递到下一个结点.</li>
+<li>令牌：特殊帧</li>
+<li>问题:<ul>
+<li>令牌开销</li>
+<li>等待延迟</li>
+<li>单点故障</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><ul>
+<li>信道划分MAC协议：<ul>
+<li>网络负载重时，共享信道效率高，且公平</li>
+<li>网络负载轻时，共享信道效率低！</li>
+</ul>
+</li>
+<li>随机访问MAC协议：<ul>
+<li>网络负载轻时，共享信道效率高，单个结点可以利用信道的全部带宽</li>
+<li>网络负载重时，产生冲突开销</li>
+</ul>
+</li>
+<li>轮转访问MAC协议：<ul>
+<li>综合两者的优点！</li>
+</ul>
+</li>
+</ul>
+<h2 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h2><ul>
+<li>32位IP地址:<ul>
+<li>接口的网络层地址</li>
+<li>用于标识网络层(第3层)分组，支持分组转发</li>
+</ul>
+</li>
+<li>MAC地址(或称LAN地址,物理地址,以太网地址) :<ul>
+<li>作用：用于局域网内标识一个帧从哪个接口发出，到达哪个物理相连的其他接口</li>
+<li>48位MAC地址(用于大部分LANs)，固化在网卡的ROM中，有时也可以软件设置</li>
+<li>e.g.: 1A-2F-BB-76-09-AD</li>
+</ul>
+</li>
+<li>局域网中的每块网卡都有一个唯一的MAC地址</li>
+</ul>
+<h2 id="ARP协议-同一局域网内"><a href="#ARP协议-同一局域网内" class="headerlink" title="ARP协议: 同一局域网内"></a>ARP协议: 同一局域网内</h2><ul>
+<li>A想要给同一局域网内的B发送数据报<ul>
+<li>B的MAC地址不在A的ARP表中</li>
+</ul>
+</li>
+<li>A广播ARP查询分组，其中包含B的IP地址<ul>
+<li>LAN中所有结点都会接收ARP查询</li>
+</ul>
+</li>
+<li>B接收ARP查询分组，IP地址匹配成功，向A应答B的MAC地址<ul>
+<li>利用单播帧向A发送应答</li>
+</ul>
+</li>
+<li>A在其ARP表中，缓存B的IP-MAC地址对，直至超时<ul>
+<li>超时后，再次刷新</li>
+</ul>
+</li>
+<li>ARP是“即插即用”协议:<ul>
+<li>结点自主创建ARP表，无需干预</li>
+</ul>
+</li>
+</ul>
+<h2 id="以太网CSMA-CD算法"><a href="#以太网CSMA-CD算法" class="headerlink" title="以太网CSMA/CD算法"></a>以太网CSMA/CD算法</h2><ol>
+<li>NIC从网络层接收数据报，创建数据帧</li>
+<li>监听信道：如果NIC监听到信道空闲，则开始发送帧；如果NIC监听到信道忙，则一直等待到信道空闲，然后发送帧。</li>
+<li>NIC发送完整个帧， 而没有检测到其他结点的数据发送， 则NIC确认帧发<br>送成功！</li>
+<li>如果NIC检测到其他结点传输数据，则中止发送，并发送堵塞信号。</li>
+<li>中止发送后，NIC进入二进制指数退避。连续冲突次数越多，平均等<br>待时间越长。</li>
+</ol>
+<h2 id="以太网帧结构"><a href="#以太网帧结构" class="headerlink" title="以太网帧结构"></a>以太网帧结构</h2><ul>
+<li><p>前导码(Preamble)(8B):</p>
+<ul>
+<li>7个字节的10101010，第8字节为10101011</li>
+<li>用于发送端与接收端的时钟同步</li>
+</ul>
+</li>
+<li><p>目的MAC地址、源MAC地址(各6B):</p>
+<ul>
+<li>如果网卡的MAC地址与收到的帧的目的MAC地址匹配，或者帧的目的MAC地址为广播地址(FF-FF-FF-FF-FF-FF)，则网卡接收该帧，并将其封装的网络层分组交给相应的网络层协议。</li>
+<li>否则，网卡丢弃(不接收)该帧。</li>
+</ul>
+</li>
+<li><p>类型(Type)(2B): </p>
+<ul>
+<li>指示帧中封装的是哪种高层协议的分组(如，IP数据报、 Novell IPX数据报、AppleTalk数据报等)</li>
+</ul>
+</li>
+<li><p>数据(Data)(46-1500B): </p>
+<ul>
+<li>指上层协议载荷。</li>
+</ul>
+</li>
+<li><p>CRC(4B): </p>
+<ul>
+<li>循环冗余校验码</li>
+</ul>
+</li>
+</ul>
+<h2 id="以太网交换机-switch"><a href="#以太网交换机-switch" class="headerlink" title="以太网交换机(switch)"></a>以太网交换机(switch)</h2><ul>
+<li>链路层设备<ul>
+<li>存储-转发以太网帧</li>
+<li>检验到达帧的目的MAC地址， 选择性(selectively) 向一个或多个输出链路转发帧</li>
+<li>利用CSMA/CD访问链路，发送帧</li>
+</ul>
+</li>
+<li>透明(transparent)<ul>
+<li>主机感知不到交换机的存在</li>
+</ul>
+</li>
+<li>即插即用(plug-and-play)</li>
+<li>自学习(self-learning)<ul>
+<li>交换机无需配置</li>
+</ul>
+</li>
+</ul>
+<h2 id="交换机-多端口间同时传输"><a href="#交换机-多端口间同时传输" class="headerlink" title="交换机: 多端口间同时传输"></a>交换机: 多端口间同时传输</h2><ul>
+<li>主机利用独享(dedicated)链路直接连接交换机</li>
+<li>交换机缓存帧</li>
+<li>交换机在每段链路上利用CSMA/CD收发帧，但无冲突，且可以全双工<ul>
+<li>每段链路一个独立的冲突域</li>
+</ul>
+</li>
+<li>交换(switching): A-A’与B-B’的传输可以同时进行，没有冲突</li>
+</ul>
+<h2 id="交换机-自学习"><a href="#交换机-自学习" class="headerlink" title="交换机: 自学习"></a>交换机: 自学习</h2><ul>
+<li>交换机通过自学习，获知到达主机的接口信息<ul>
+<li>当收到帧时，交换机“学习”到发送帧的主机（通过帧的源MAC地址），位于收到该帧的接口所连接的LAN网段</li>
+<li>将发送主机MAC地址/接口信息记录到交换表中</li>
+</ul>
+</li>
+</ul>
+<h2 id="交换机-帧过滤-转发"><a href="#交换机-帧过滤-转发" class="headerlink" title="交换机: 帧过滤/转发"></a>交换机: 帧过滤/转发</h2><ul>
+<li>当交换机收到帧:</li>
+</ul>
+<ol>
+<li>记录帧的源MAC地址与输入链路接口</li>
+<li>利用目的MAC地址检索交换表</li>
+<li>if 在交换表中检索到与目的MAC地址匹配的入口(entry)<br>then {<br>if 目的主机位于收到帧的网段<br>then 丢弃帧<br>else 将帧转发到该入口指向的接口  }<br>else 泛洪(flood) /* 向除收到该帧的接口之外的所有接口转发 */</li>
+</ol>
+<h2 id="交换机-vs-路由器"><a href="#交换机-vs-路由器" class="headerlink" title="交换机 vs. 路由器"></a>交换机 vs. 路由器</h2><ul>
+<li>两者均为存储-转发设备:<ul>
+<li>路由器: 网络层设备 (检测网络层分组首部)</li>
+<li>交换机: 链路层设备 (检测链路层帧的首部)</li>
+</ul>
+</li>
+<li>二者均使用转发表:<ul>
+<li>路由器: 利用路由算法(路由协议)计算(设置), 依据IP地址</li>
+<li>交换机: 利用自学习、泛洪构建转发表, 依据MAC地址</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,198 +603,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-03T01:16:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《计算机网络 自顶向下方法》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章-链路层和局域网"><span class="toc-number">1.</span> <span class="toc-text">第六章 链路层和局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链路层服务"><span class="toc-number">1.2.</span> <span class="toc-text">链路层服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网卡间通信"><span class="toc-number">1.3.</span> <span class="toc-text">网卡间通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#奇偶校验码"><span class="toc-number">1.4.</span> <span class="toc-text">奇偶校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet校验和"><span class="toc-number">1.5.</span> <span class="toc-text">Internet校验和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环冗余校验码"><span class="toc-number">1.6.</span> <span class="toc-text">循环冗余校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两类“链路”："><span class="toc-number">1.7.</span> <span class="toc-text">两类“链路”：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多路访问控制协议"><span class="toc-number">1.8.</span> <span class="toc-text">多路访问控制协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TDMA-time-division-multiple-access"><span class="toc-number">1.9.</span> <span class="toc-text">TDMA: time division multiple access</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FDMA-frequency-division-multiple-access"><span class="toc-number">1.10.</span> <span class="toc-text">FDMA: frequency division multiple access</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时隙ALOHA协议"><span class="toc-number">1.11.</span> <span class="toc-text">时隙ALOHA协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非时隙-纯-ALOHA协议"><span class="toc-number">1.12.</span> <span class="toc-text">非时隙(纯)ALOHA协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#载波监听多路访问协议CSMA"><span class="toc-number">1.13.</span> <span class="toc-text">载波监听多路访问协议CSMA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CD协议"><span class="toc-number">1.14.</span> <span class="toc-text">CSMA&#x2F;CD协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮转访问MAC协议"><span class="toc-number">1.15.</span> <span class="toc-text">轮转访问MAC协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比"><span class="toc-number">1.16.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC地址"><span class="toc-number">1.17.</span> <span class="toc-text">MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议-同一局域网内"><span class="toc-number">1.18.</span> <span class="toc-text">ARP协议: 同一局域网内</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网CSMA-CD算法"><span class="toc-number">1.19.</span> <span class="toc-text">以太网CSMA&#x2F;CD算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网帧结构"><span class="toc-number">1.20.</span> <span class="toc-text">以太网帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网交换机-switch"><span class="toc-number">1.21.</span> <span class="toc-text">以太网交换机(switch)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机-多端口间同时传输"><span class="toc-number">1.22.</span> <span class="toc-text">交换机: 多端口间同时传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机-自学习"><span class="toc-number">1.23.</span> <span class="toc-text">交换机: 自学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机-帧过滤-转发"><span class="toc-number">1.24.</span> <span class="toc-text">交换机: 帧过滤&#x2F;转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机-vs-路由器"><span class="toc-number">1.25.</span> <span class="toc-text">交换机 vs. 路由器</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-01T01:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-28T06:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-23T03:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-23T00:16:56.581Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -416,8 +741,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
