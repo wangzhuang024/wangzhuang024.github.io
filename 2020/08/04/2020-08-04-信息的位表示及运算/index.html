@@ -6,15 +6,59 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>2020-08-04_信息的位表示及运算 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="信息的表示及处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-08-04_信息的位表示及运算">
+<meta property="og:url" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="信息的表示及处理">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/a.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/ww.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xx.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xl.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xx.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xx.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xi.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/2i.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/b2uw.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xlq.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/b2uw.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/ww.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/tp1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/b2tw.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xlq.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs2.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/xw1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/-2w1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/tp2.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/ww.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/tminw.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/tmaxw.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/a.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/fw1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs3.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/b.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/fw2.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs4.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/c.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs5.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/d.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs6.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/e.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/fw3.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs7.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/fw4.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/gs8.JPG">
+<meta property="article:published_time" content="2020-08-04T03:13:16.000Z">
+<meta property="article:modified_time" content="2020-08-04T10:39:34.147Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="计算机系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/a.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,35 +209,105 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-2020-08-04-信息的位表示及运算" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-08-04T03:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/">2020-08-04_信息的位表示及运算</a>
+    <h1 class="article-title" itemprop="name">
+      2020-08-04_信息的位表示及运算
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2020-08-04T03:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="信息的表示及处理"><a href="#信息的表示及处理" class="headerlink" title="信息的表示及处理"></a>信息的表示及处理</h1><a id="more"></a>
+<p><img src="a.jpg" alt=""></p>
+<h2 id="一、信息编码"><a href="#一、信息编码" class="headerlink" title="一、信息编码"></a>一、信息编码</h2><h3 id="无符号数编码"><a href="#无符号数编码" class="headerlink" title="无符号数编码"></a>无符号数编码</h3><p>假设有一个整数数据类型有 <img src="ww.JPG" alt=""> 位。我们可以将向量写成 <img src="xx.JPG" alt=""> ，表示整个向量，或者写成 <img src="xl.JPG" alt=""> ，表示向量中的每一位。把 <img src="xx.JPG" alt=""> 看做一个二进制表示的数，就获得了 <img src="xx.JPG" alt=""> 的无符号表示。在这个编码中，每个位 <img src="xi.JPG" alt=""> 都取值 0 或 1 ，后一种取值意味着数值 <img src="2i.JPG" alt=""> 为数字值的一部分，我们用一个函数 <img src="b2uw.JPG" alt=""> 来表示。</p>
+<p>即，对向量 <img src="xlq.JPG" alt=""> </p>
+<p><img src="gs1.JPG" alt=""></p>
+<p>函数 <img src="b2uw.JPG" alt=""> 将一个长度为 <img src="ww.JPG" alt=""> 的 0、1 串映射到非负整数。下面给出几种从位向量到整数的映射：</p>
+<p><img src="tp1.JPG" alt=""></p>
+<p>无符号数编码唯一</p>
+<h3 id="补码编码"><a href="#补码编码" class="headerlink" title="补码编码"></a>补码编码</h3><p>在许多应用中，我们还希望表示负值。最常见的有符号数的计算机表示方式就是补码形式。在这个定义中，将字的最高有效位解释为负权。我们用函数 <img src="b2tw.JPG" alt=""> 来表示。</p>
+<p>即，对向量 <img src="xlq.JPG" alt=""> </p>
+<p><img src="gs2.JPG" alt=""></p>
+<p>最高有效位 <img src="xw1.JPG" alt=""> 也称为符号位，它的“权重”为 <img src="-2w1.JPG" alt=""> ，是无符号表示中权重的负数，符号位设置为 1 时，表示负数，而当设置为 0 时，值为非负。下面给出几种从位向量到整数的映射：</p>
+<p><img src="tp2.JPG" alt=""></p>
+<p><img src="ww.JPG" alt=""> 位补码所能表示的值的范围，它能表示的最小值是位向量 [10···0] ,也就是设置这个位为负权，但是清除其他的所有位，其整数值为 <img src="tminw.JPG" alt=""> 。而最大值是位向量 [01···1] ，也就是清除具有负权的位，而设置其他所有的位，其整数值为 <img src="tmaxw.JPG" alt=""> 。在最大值和最小值的范围内的每一个数字都有唯一的一个 w 位补码编码。</p>
+<p>补码的范围是不对称的：|TMin|=|TMax|+1 ,也就是说， TMin 没有与之相对应的正数。</p>
+<p>最大的无符号数值刚好比补码的最大值的两倍加一： <img src="a.JPG" alt=""> 。补码表示中所有表示负数的位模式在无符号表示中都变成了正数。</p>
+<pre><code>有符号数的其他表示方式：原码的反码加一。</code></pre><h3 id="有符号数和无符号数之间的转换"><a href="#有符号数和无符号数之间的转换" class="headerlink" title="有符号数和无符号数之间的转换"></a>有符号数和无符号数之间的转换</h3><p>一般规则是：数值可能会改变，但是位模式不变。<br>补码转换为无符号数：<br>对满足 <img src="fw1.JPG" alt=""> 的 x 有：</p>
+<p> <img src="gs3.JPG" alt=""> </p>
+<p> 即： <img src="b.JPG" alt=""> </p>
+<p> 如：补码 1001=-7<br> 无符号数 1001= 9 （-7+2^4=-7+16=9）</p>
+<p>无符号数转换为补码：<br>对满足 <img src="fw2.JPG" alt=""> 的 x 有：</p>
+<p> <img src="gs4.JPG" alt=""> </p>
+<p> 即： <img src="c.JPG" alt=""> </p>
+<p> 如：无符号数 1001= 9<br>_____补码 1001=-7 （9-2^4=9-16=-7）</p>
+<h3 id="扩展一个数的位表示"><a href="#扩展一个数的位表示" class="headerlink" title="扩展一个数的位表示"></a>扩展一个数的位表示</h3><p>要将一个无符号数转换成一个更大的数据类型，我们只要简单地在表示的开头添加 0 ，这种运算被称为零扩展。</p>
+<p>如：<br>四位 0010 扩展为五位 00010<br>四位 1010 扩展为五位 01010</p>
+<p>要将一个补码数字转换为一个更大的数据类型，可以执行一个符号扩展，在表示中添加最高位的有效值。</p>
+<p>如：<br>四位 0010 扩展为五位 00010<br>四位 1010 扩展为五位 11010</p>
+<p>在四位 1010 扩展为五位 11010 中，虽然加上了一位权值为 -16 的位，但是还把 -8 的位转换为一个权值为 8 的位，这两项运算的综合效果就会保持原始的值。</p>
+<h3 id="截断数字"><a href="#截断数字" class="headerlink" title="截断数字"></a>截断数字</h3><p>截断一个数可能会改变它的值——溢出的一种形式。</p>
+<p>无符号数的截断结果是：</p>
+<p> <img src="gs5.JPG" alt=""> </p>
+<p> <img src="d.JPG" alt=""></p>
+<p>如：四位 1101（13）截断为三位 101（5）</p>
+<p>也就是： 13 % 8 = 5</p>
+<p>补码也具有相似的属性，只不过要将最高位转换为符号位。</p>
+<p>补码数字的截断结果是：</p>
+<p> <img src="gs6.JPG" alt=""> </p>
+<p> <img src="e.JPG" alt=""></p>
+<h2 id="二、位运算"><a href="#二、位运算" class="headerlink" title="二、位运算"></a>二、位运算</h2><h3 id="无符号加法"><a href="#无符号加法" class="headerlink" title="无符号加法"></a>无符号加法</h3><p>对满足 <img src="fw3.JPG" alt=""> 的 x 和 y 有：</p>
+<p> <img src="gs7.JPG" alt=""></p>
+<h3 id="补码加法"><a href="#补码加法" class="headerlink" title="补码加法"></a>补码加法</h3><p> 对满足 <img src="fw4.JPG" alt=""> 的 x 和 y 有：</p>
+<p> <img src="gs8.JPG" alt=""></p>
+<h3 id="无符号数乘2的幂"><a href="#无符号数乘2的幂" class="headerlink" title="无符号数乘2的幂"></a>无符号数乘2的幂</h3><p>无符号数左移一位数值等价于执行一个与 2 的幂相乘的无符号数乘法。</p>
+<p>利用此性质我们可以把表达式 x*14 ，利用 14=2^3+2^2+2^1 ，重写为 （x&lt;&lt;3）+(x&lt;&lt;2)+(x&lt;&lt;1) 。或者利用 14=2^4-2^1 ，重写为 (x&lt;&lt;4)-(x&lt;&lt;1) 。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,364 +319,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-01T06:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2020-08-01_一个HTTP请求的历程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/">2020-08-01_一个HTTP请求的历程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信息的表示及处理"><span class="toc-number">1.</span> <span class="toc-text">信息的表示及处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、信息编码"><span class="toc-number">1.1.</span> <span class="toc-text">一、信息编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号数编码"><span class="toc-number">1.1.1.</span> <span class="toc-text">无符号数编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补码编码"><span class="toc-number">1.1.2.</span> <span class="toc-text">补码编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有符号数和无符号数之间的转换"><span class="toc-number">1.1.3.</span> <span class="toc-text">有符号数和无符号数之间的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展一个数的位表示"><span class="toc-number">1.1.4.</span> <span class="toc-text">扩展一个数的位表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截断数字"><span class="toc-number">1.1.5.</span> <span class="toc-text">截断数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、位运算"><span class="toc-number">1.2.</span> <span class="toc-text">二、位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号加法"><span class="toc-number">1.2.1.</span> <span class="toc-text">无符号加法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补码加法"><span class="toc-number">1.2.2.</span> <span class="toc-text">补码加法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号数乘2的幂"><span class="toc-number">1.2.3.</span> <span class="toc-text">无符号数乘2的幂</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/" class="archive-article-date">
-  	<time datetime="2020-07-24T09:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/">2020-07-24_HTTP概况</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/" class="archive-article-date">
-  	<time datetime="2020-07-20T09:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/">2020-07-20_TCP可靠传输</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/2020-07-09_TCPandUDP/" class="archive-article-date">
-  	<time datetime="2020-07-09T06:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/2020-07-09_TCPandUDP/">2020-07-09_TCP和UDP</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-05T01:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-03T01:16:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-01T01:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-28T06:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-23T03:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -589,8 +457,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
