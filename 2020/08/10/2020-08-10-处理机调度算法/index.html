@@ -20,9 +20,9 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/c.JPG">
 <meta property="og:image" content="http://yoursite.com/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/d.JPG">
 <meta property="article:published_time" content="2020-08-10T08:00:43.000Z">
-<meta property="article:modified_time" content="2020-08-10T10:04:39.772Z">
+<meta property="article:modified_time" content="2020-08-13T10:22:26.416Z">
 <meta property="article:author" content="wangzhuang">
-<meta property="article:tag" content="计算机系统">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/a.JPG">
   
@@ -69,7 +69,7 @@
 	        
 				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
 	        
-				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a></li>
+				<li><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
@@ -157,7 +157,7 @@
 		        
 					<li style="width: 20%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a></li>
+					<li style="width: 20%"><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
 		        
 					<li style="width: 20%"><a href="/archives/index.html">归档</a></li>
 		        
@@ -236,11 +236,11 @@
 <h3 id="4-3-高响应比优先（HRRN-Highest-Response-Ratio-Next）"><a href="#4-3-高响应比优先（HRRN-Highest-Response-Ratio-Next）" class="headerlink" title="4.3 高响应比优先（HRRN,    Highest    Response Ratio Next）"></a>4.3 高响应比优先（HRRN,    Highest    Response Ratio Next）</h3><p>算法思想：要综合考虑作业/进程的等待时间和要求服务的时间。<br>算法规则：在每次调度时先计算各个作业/进程的响应比，选择响应比最高的作业/进程为其服务。响应比 = （等待时间 + 要求服务时间） / 要求服务时间 （响应比 ≥ 1）<br>用于作业/进程调度：即可用于作业调度，也可用于进程调度。<br>是否可抢占：非抢占式的算法。因此只有当前运行的作业/进程主动放弃处理机时，才需要调度，才需要计算响应比。<br>优点：综合考虑了等待时间和运行时间（要求服务时间）。等待时间相同时， 要求服务时间短的优先（SJF 的优点）。要求服务时间相同时， 等待时间长的优先（FCFS 的优点）。对于长作业来说， 随着等待时间越来越久， 其响应比也会越来越大， 从而避免了长作业饥饿的问题。<br>是否会导致饥饿：不会。</p>
 <p><img src="c.JPG" alt=""></p>
 <p>这几种算法主要关心对用户的公平性、平均周转时间、平均等待时间等评价系统整体性能的指标，但是不关心“响应时间”，也并不区分任务的紧急程度 因此对于用户来说，交互性很糟糕。因此这三种算法一般适合用于早期的批处理系统。</p>
-<h3 id="4-4时间片轮转（RR，Round-Robin）"><a href="#4-4时间片轮转（RR，Round-Robin）" class="headerlink" title="4.4时间片轮转（RR，Round-Robin）"></a>4.4时间片轮转（RR，Round-Robin）</h3><p>算法思想：公平地轮流地为每个进程服务，让每个进程在一定时间间隔内都可以得到响应。<br>算法规则：按照各进程到达就绪队列的顺序，轮流让各个进程执行一个时间片（如100ms）。若进程未在一个时间片内执行完，则剥夺处理机，将进程重新放到就绪队列队尾重新排队。<br>用于作业/进程调度：用于进程调度（只有作业放入内存建立了相应的进程后，才能被分配处理机时间片）<br>是否可抢占：若进程未能在时间片内运行完，将被强行剥夺处理机使用权，因此时间片轮转掉度量法属于抢占式的算法。由时钟装置发出时钟中断来通知 CPU 时间片已到。<br>优点：公平：响应快，适用于分时操作系统。<br>缺点：由于高频率的进程切换，因此有一定开销；不区分任务的紧急程度。<br>是否会导致饥饿：不会    </p>
+<h3 id="4-4-时间片轮转（RR，Round-Robin）"><a href="#4-4-时间片轮转（RR，Round-Robin）" class="headerlink" title="4.4 时间片轮转（RR，Round-Robin）"></a>4.4 时间片轮转（RR，Round-Robin）</h3><p>算法思想：公平地轮流地为每个进程服务，让每个进程在一定时间间隔内都可以得到响应。<br>算法规则：按照各进程到达就绪队列的顺序，轮流让各个进程执行一个时间片（如100ms）。若进程未在一个时间片内执行完，则剥夺处理机，将进程重新放到就绪队列队尾重新排队。<br>用于作业/进程调度：用于进程调度（只有作业放入内存建立了相应的进程后，才能被分配处理机时间片）<br>是否可抢占：若进程未能在时间片内运行完，将被强行剥夺处理机使用权，因此时间片轮转掉度量法属于抢占式的算法。由时钟装置发出时钟中断来通知 CPU 时间片已到。<br>优点：公平：响应快，适用于分时操作系统。<br>缺点：由于高频率的进程切换，因此有一定开销；不区分任务的紧急程度。<br>是否会导致饥饿：不会    </p>
 <p>另外：<br>如果时间片太大，使得每个进程都可以在一个时间片内就完成，则时间片轮转调度算法退化为先来先服务调度算法，并且会增大进程响应时间。因此时间片不能太大。<br>另一方面，进程调度、切换是有时间代价的（保存、恢复运行环境），因此如果时间片太小，会导致进程切换过于频紧，系统会花大量的时间来处理违程切换，从而导致实际用于进程执行的时间比例减少。可见时间片也不能太小。</p>
-<h3 id="4-5优先级调度算法"><a href="#4-5优先级调度算法" class="headerlink" title="4.5优先级调度算法"></a>4.5优先级调度算法</h3><p>算法思想：随着计算机的发展：特别是实时操作系统的出现，越来越多的应用场景需要根据任务的紧急程度来决定处理顺序。<br>算法规则：调度时选择优先级最高的作业/进程。<br>用于作业/进程调度：既可用于作业调度，也可用于进程调度。甚至，还会用在 I/O 调度中   。<br>是否可抢占：抢占式、非抢占式都有。非抢占式只需在进程主动放弃处理机时进行调度即可，而抢占式还在就绪队列变化时，检查是否会发生抢占。<br>优点：用优先级区分紧急程度、重要程度，适用于实时操作系统。可灵活地调整对各种作业/进程的偏好程度。<br>缺点：若源源不断地有高优先级进程到来，则可能导致饥饿。<br>是否会导致饥饿：会。</p>
+<h3 id="4-5-优先级调度算法"><a href="#4-5-优先级调度算法" class="headerlink" title="4.5 优先级调度算法"></a>4.5 优先级调度算法</h3><p>算法思想：随着计算机的发展：特别是实时操作系统的出现，越来越多的应用场景需要根据任务的紧急程度来决定处理顺序。<br>算法规则：调度时选择优先级最高的作业/进程。<br>用于作业/进程调度：既可用于作业调度，也可用于进程调度。甚至，还会用在 I/O 调度中   。<br>是否可抢占：抢占式、非抢占式都有。非抢占式只需在进程主动放弃处理机时进行调度即可，而抢占式还在就绪队列变化时，检查是否会发生抢占。<br>优点：用优先级区分紧急程度、重要程度，适用于实时操作系统。可灵活地调整对各种作业/进程的偏好程度。<br>缺点：若源源不断地有高优先级进程到来，则可能导致饥饿。<br>是否会导致饥饿：会。</p>
 <p>如果某进程在就绪队列中等待了很长时间，则可以适当提升其优先级。<br>如果某进程占用处理机运行了很长时间，则可适当降低其优先级。<br>如果发现一个进程频繁地进行 I/O 操作，则可适当提升其优先级。 </p>
-<h3 id="4-6多级反馈队列调度算法"><a href="#4-6多级反馈队列调度算法" class="headerlink" title="4.6多级反馈队列调度算法"></a>4.6多级反馈队列调度算法</h3><p>算法思想：对其他调度算法的折中权衡。<br>算法规则：<br>1.设置多级就绪队列，各级队列优先级从高到低，时间片从小到大。<br>2.新进程到达时先进入第1级队列，按 FCFS 原则排队等待被分配时间片，若用完时间片进程还未结束，则进程进入下一级队列队尾。如果此时已经是在最下级的队列，则重新放回该队列队尾。<br>3.只有第k级队列为空时，才会为k+1级队头的进程分配时间片用于作业/进程调度用于进程调度。<br>用于作业/进程调度：用于进程调度。<br>是否可抢占：抢占式的算法。在 k 级队列的进程运行过程中，若更上级的队列（1~k-1级）中进入了一个新进程，则由于新进程处于优先级更高的队列中，因此新进程会抢占处理机，原来运行的进程放回k级队列队尾。<br>优点：对各类型进程相对公平（FCFS的优点）；每个新到达的进程都可以很快就得到响应（RR的优点）：短进程只用较少的时间就可完成（SPF的优点）：不必实现估计进程的运行时间（避免用户作假）：可灵活地调整对各类进程的偏好程度，比如 CPU 密集型进程、 I/O 密集型进程（拓展：可以将因 I/O 而阻塞的进程重新放回原队列，这样 I/O 型进程就可以保持较高优先级）<br>是否会导致饥饿：会。</p>
+<h3 id="4-6-多级反馈队列调度算法"><a href="#4-6-多级反馈队列调度算法" class="headerlink" title="4.6 多级反馈队列调度算法"></a>4.6 多级反馈队列调度算法</h3><p>算法思想：对其他调度算法的折中权衡。<br>算法规则：<br>1.设置多级就绪队列，各级队列<strong>优先级从高到低，时间片从小到大</strong>。<br>2.新进程到达时先进入第1级队列，按 FCFS 原则排队等待被分配时间片，若用完时间片进程还未结束，则进程进入下一级队列队尾。如果此时已经是在最下级的队列，则重新放回该队列队尾。<br>3.只有第k级队列为空时，才会为k+1级队头的进程分配时间片用于作业/进程调度用于进程调度。<br>用于作业/进程调度：用于进程调度。<br>是否可抢占：抢占式的算法。在 k 级队列的进程运行过程中，若更上级的队列（1~k-1级）中进入了一个新进程，则由于新进程处于优先级更高的队列中，因此新进程会抢占处理机，原来运行的进程放回k级队列队尾。<br>优点：对各类型进程相对公平（FCFS 的优点）；每个新到达的进程都可以很快就得到响应（RR 的优点）：短进程只用较少的时间就可完成（SPF 的优点）：不必实现估计进程的运行时间（避免用户作假）：可灵活地调整对各类进程的偏好程度，比如 CPU 密集型进程、 I/O 密集型进程（拓展：可以将因 I/O 而阻塞的进程重新放回原队列，这样 I/O 型进程就可以保持较高优先级）<br>是否会导致饥饿：会。</p>
 <p><img src="d.JPG" alt=""></p>
 <p>比起早期的批处理操作系统来说，由于计算机造价大幅降低，因此之后出现的交互式操作系统（包括分时操作系统、实时操作系统等）更注重系统的响应时间、公平性、平衡性等指标。而这几种算法恰好也能较好地满足交互式系统的需求。因此这三种算法适合用于交互式系统。（比如UNIX使用的就是多级反馈队列调度算法）</p>
 
@@ -282,7 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
@@ -352,6 +352,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2020-08-13_进程互斥与同步
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">2020-08-09_进程和线程</div>
@@ -381,7 +390,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#处理机调度算法"><span class="toc-number">1.</span> <span class="toc-text">处理机调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、处理机调度的概念、层次"><span class="toc-number">1.1.</span> <span class="toc-text">一、处理机调度的概念、层次</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-调度的基本概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 调度的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-调度的三个层次"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 调度的三个层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-进程的挂起态与七状态模型"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 进程的挂起态与七状态模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、进程调度的时机、切换与过程调度方式"><span class="toc-number">1.2.</span> <span class="toc-text">二、进程调度的时机、切换与过程调度方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-进程调度的时机"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 进程调度的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-进程调度的方式"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 进程调度的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-进程的切换与过程"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 进程的切换与过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、调度算法的评价指标"><span class="toc-number">1.3.</span> <span class="toc-text">三、调度算法的评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、调度算法"><span class="toc-number">1.4.</span> <span class="toc-text">四、调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-先来先服务FCFS-First-Come-First-Serve）"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 先来先服务FCFS, First Come First Serve）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-短作业优先（SJF-Shortest-Job-First）"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 短作业优先（SJF, Shortest Job First）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-高响应比优先（HRRN-Highest-Response-Ratio-Next）"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 高响应比优先（HRRN,    Highest    Response Ratio Next）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4时间片轮转（RR，Round-Robin）"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4时间片轮转（RR，Round-Robin）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5优先级调度算法"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.5优先级调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6多级反馈队列调度算法"><span class="toc-number">1.4.6.</span> <span class="toc-text">4.6多级反馈队列调度算法</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#处理机调度算法"><span class="toc-number">1.</span> <span class="toc-text">处理机调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、处理机调度的概念、层次"><span class="toc-number">1.1.</span> <span class="toc-text">一、处理机调度的概念、层次</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-调度的基本概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 调度的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-调度的三个层次"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 调度的三个层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-进程的挂起态与七状态模型"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 进程的挂起态与七状态模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、进程调度的时机、切换与过程调度方式"><span class="toc-number">1.2.</span> <span class="toc-text">二、进程调度的时机、切换与过程调度方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-进程调度的时机"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 进程调度的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-进程调度的方式"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 进程调度的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-进程的切换与过程"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 进程的切换与过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、调度算法的评价指标"><span class="toc-number">1.3.</span> <span class="toc-text">三、调度算法的评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、调度算法"><span class="toc-number">1.4.</span> <span class="toc-text">四、调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-先来先服务FCFS-First-Come-First-Serve）"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 先来先服务FCFS, First Come First Serve）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-短作业优先（SJF-Shortest-Job-First）"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 短作业优先（SJF, Shortest Job First）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-高响应比优先（HRRN-Highest-Response-Ratio-Next）"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 高响应比优先（HRRN,    Highest    Response Ratio Next）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-时间片轮转（RR，Round-Robin）"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4 时间片轮转（RR，Round-Robin）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-优先级调度算法"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.5 优先级调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-多级反馈队列调度算法"><span class="toc-number">1.4.6.</span> <span class="toc-text">4.6 多级反馈队列调度算法</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -500,7 +509,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>
