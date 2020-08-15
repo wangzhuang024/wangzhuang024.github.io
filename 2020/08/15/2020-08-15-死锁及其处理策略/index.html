@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>2020-08-15_死锁及其处理策略 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="死锁及其处理策略">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-08-15_死锁及其处理策略">
+<meta property="og:url" content="http://yoursite.com/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="死锁及其处理策略">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/a.JPG">
+<meta property="article:published_time" content="2020-08-15T07:13:04.000Z">
+<meta property="article:modified_time" content="2020-08-15T08:07:47.408Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/a.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,35 +172,93 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-2020-08-15-死锁及其处理策略" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      2020-08-15_死锁及其处理策略
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="archive-article-date">
+
+        
+        <a href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="archive-article-date">
   	<time datetime="2020-08-15T07:13:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">2020-08-15_死锁及其处理策略</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="死锁及其处理策略"><a href="#死锁及其处理策略" class="headerlink" title="死锁及其处理策略"></a>死锁及其处理策略</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="一、死锁的概念"><a href="#一、死锁的概念" class="headerlink" title="一、死锁的概念"></a>一、死锁的概念</h2><h3 id="1-1-什么是死锁？"><a href="#1-1-什么是死锁？" class="headerlink" title="1.1 什么是死锁？"></a>1.1 什么是死锁？</h3><p>在并发环境下，<strong>各进程因竞争资源而造成的一种互相等待对方手里的资源，导致各进程都阻塞，都无法向前推进的现象</strong>，就是“死锁”。<br>发生死锁后<strong>若无外力干涉，这些进程都将无法向前推进</strong>。<br>死锁一定是“循环等待对方手里的资源”导致的，因此如果有死锁现象，那<strong>至少有两个或两个以上的进程同时发生死锁</strong>。    另外，<strong>发生死锁的进程一定处于阻塞态</strong>。    </p>
+<h3 id="1-2-死锁产生的必要条件"><a href="#1-2-死锁产生的必要条件" class="headerlink" title="1.2 死锁产生的必要条件"></a>1.2 死锁产生的必要条件</h3><p>互斥条件：只有对必须互斥使用的资源的争抢才会导致死锁（如哲学家的筷子、打印机设备）。像内存、扬声器这样可以同时让多个进程使用的资源是不会导致死锁的（因为进程不用阻塞等待这种资源）。<br>不剥夺条件：进程所获得的资源在未使用完之前，不能由其他进程强行夺走，只能主动释放。<br>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源又被其他进程占有，此时请求进程被阻塞，但又对自己已有的资源保持不放。<br>循环等待条件：存在一种进程资源的循环等待链，链中的每一个进程已获得的资源同时被下一个进程所请求。注意！发生死锁时一定有循环等待，但是发生循环等待时未必死锁（循环等待是死锁的必要不充分条件）。</p>
+<h3 id="1-3-什么时候会发生死锁"><a href="#1-3-什么时候会发生死锁" class="headerlink" title="1.3 什么时候会发生死锁"></a>1.3 什么时候会发生死锁</h3><p>1.对系统资源的竞争。各进程对不可剥夺的资源（如打印机）的竞争可能引起死锁，对可剥夺的资源（CPU）的竞争是不会引起死锁的。<br>2.进程推进顺序非法。请求和释放资源的顺序不当，也同样会导致死锁。例如，并发执行的进程 P1、P2 分别申请并占有了资源 R1、R2 ，之后进程P1又紧接着申请资源 R2 ，而进程 P2 又申请资源 R1 ，两者会因为申请的资源被对方占有而阻塞，从而发生死锁。<br>3.信号量的使用不当也会造成死锁。如生产者 - 消费者问题中，如果实现互斥的 P 操作在实现同步的 P 操作之前，就有可能导致死锁。（可以把互斥信号量、同步信号量也看做是一种抽象的系统资源）<br>总之，对不可剥夺资源的不合理分配，可能导致死锁。</p>
+<h3 id="1-4-死锁的处理策略"><a href="#1-4-死锁的处理策略" class="headerlink" title="1.4 死锁的处理策略"></a>1.4 死锁的处理策略</h3><p>1.预防死锁。破坏死锁产生的四个必要条件中的一个或几个。<br>2.避免死锁。用某种方法防止系统进入不安全状态，从而避免死锁（银行家算法）。<br>3.死锁的检测和解除。允许死锁的发生，不过操作系统会负责检测出死锁的发生，然后采取某种措施解除死锁。    </p>
+<h2 id="二、死锁的处理策略-——-预防死锁"><a href="#二、死锁的处理策略-——-预防死锁" class="headerlink" title="二、死锁的处理策略 —— 预防死锁"></a>二、死锁的处理策略 —— 预防死锁</h2><h3 id="2-1-破坏互斥条件"><a href="#2-1-破坏互斥条件" class="headerlink" title="2.1 破坏互斥条件"></a>2.1 破坏互斥条件</h3><p>互斥条件：只有对必须互斥使用的资源的争抢才会导致死锁。 </p>
+<p>如果把只能互斥使用的资源改造为允许共享使用，则系统不会进入死锁状态。比如: SPOOLing 技术。<br>操作系统可以采用 SPOOLing 技术把独占设备在逻辑上改造成共享设备。比如，用SPOOLing技术将打印机改造为共享设备…   </p>
+<p>缺点：并不是所有的资源都可以改造成可共享使用的资源。并且为了系统安全，很多地方还必须保护这种互斥性。因此，很多时候都无法破坏互斥条件。</p>
+<h3 id="2-2-破坏不剥夺条件"><a href="#2-2-破坏不剥夺条件" class="headerlink" title="2.2 破坏不剥夺条件"></a>2.2 破坏不剥夺条件</h3><p>不剥夺条件：进程所获得的资源在未使用完之前，不能由其他进程强行夺走，只能主动释放。     </p>
+<p>破坏不剥夺条件：<br>方案一：当某个进程请求新的资源得不到满足时，它必须立即释放保持的所有资源，待以后需要时再重新申请。也就是说，即使某些资源尚未使用完，也需要主动释放，从而破坏了不可剥夺条件。<br>方案二：当某个进程需要的资源被其他进程所占有的时候，可以由操作系统协助，将想要的资源强行剥夺。这种方式一般需要考虑各进程的优先级（比如：剥夺调度方式，就是将处理机资源强行剥夺给优先级更高的进程使用）。</p>
+<p>缺点：<br>1.实现起来比较复杂。<br>2.释放已获得的资源可能造成前一阶段工作的失效。 因此这种方法一般只适用于易保存和恢复状态的资源，如CPU。<br>3.反复地申请和释放资源会增加系统开销，降低系统吞吐量。<br>4.若采用方案一，意味着只要暂时得不到某个资源，之前获得的那些资源就都需要放弃，以后再重新申请。如果一直发生这样的情况，就会导致进程饥饿。</p>
+<h3 id="2-3-破坏请求和保持条件"><a href="#2-3-破坏请求和保持条件" class="headerlink" title="2.3 破坏请求和保持条件"></a>2.3 破坏请求和保持条件</h3><p>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源又被其他进程占有，此时请求进程被阻塞，但又对自己已有的资源保持不放。</p>
+<p>可以采用静态分配方法，即进程在运行前一次申请完它所需要的全部资源，在它的资源未满足前，不让它投入运行 一旦投入运行后，这些资源就一直归它所有，该进程就不会再请求别的任何资源了。</p>
+<p>实现简单，但也有缺点：<br>有些资源可能只需要用很短的时间，因此如果进程的整个运行期间都一直保持着所有资源，就会造成严重的资源浪费，资源利用率极低。另外，该策略也有可能导致某些进程饥饿。</p>
+<h3 id="2-4-破坏循环等待条件"><a href="#2-4-破坏循环等待条件" class="headerlink" title="2.4 破坏循环等待条件"></a>2.4 破坏循环等待条件</h3><p>循环等待条件：存在一种进程资源的循环等待链，链中的每一个进程已获得的资源同时被下一个进程所请求。</p>
+<p>可采用顺序资源分配法。首先给系统中的资源编号，规定每个进程必须按编号递增的顺序请求资源，同类资源（即编号相同的资源）一次申请完。<br>原理分析：一个进程只有已占有小编号的资源时，才有资格申请更大编号的资源。按此规则，已持有大编号资源的进程不可能逆向地回来申请小编号的资源，从而就不会产生循环等待的现象。</p>
+<p>缺点：<br>1.不方便增加新的设备，因为可能需要重新分配所有的编号；<br>2.进程实际使用资源的顺序可能和编号递增顺序不一致，会导致资源浪费；<br>3.必须按规定次序申请资源，用户编程麻烦。</p>
+<h2 id="三、死锁的处理策略-——-避免死锁"><a href="#三、死锁的处理策略-——-避免死锁" class="headerlink" title="三、死锁的处理策略 —— 避免死锁"></a>三、死锁的处理策略 —— 避免死锁</h2><h3 id="3-1-安全序列、不安全状态、死锁的联系"><a href="#3-1-安全序列、不安全状态、死锁的联系" class="headerlink" title="3.1 安全序列、不安全状态、死锁的联系"></a>3.1 安全序列、不安全状态、死锁的联系</h3><p>安全序列，就是指如果系统按照这种序列分配资源，则每个进程都能顺利完成。 只要能找出一个安全序列，系统就是安全状态。当然，安全序列可能有多个。<br>如果分配了资源之后，系统中找不出任何一个安全序列，系统就进入了不安全状态。这就意味着之后可能所有进程都无法顺利的执行下去。当然，如果有进程提前归还了一些资源，那系统也有可能重新回到安全状态，不过我们在分配资源之前总是要考虑到最坏的情况。<br>如果系统处于安全状态，就一定不会发生死锁。如果系统进入不安全状态，就可能发生死锁（处于不安全状态未必就是发生了死锁，但发生死锁时一定是在不安全状态）<br>因此可以在资源分配之前预先判断这次分配是否会导致系统进入不安全状态，以此决定是否答应资源分配请求。这也是“银行家算法”的核心思想。</p>
+<h3 id="3-2-银行家算法"><a href="#3-2-银行家算法" class="headerlink" title="3.2 银行家算法"></a>3.2 银行家算法</h3><p>银行家算法是荷兰学者 Dijkstra 为银行系统设计的，以确保银行在发放现金贷款时，不会发生不能满足所有客户需要的情况。后来该算法被用在操作系统中，用于避免死锁。<br>核心思想：在进程提出资源申请时，先预判此次分配是否会导致系统进入不安全状态。如果会进入不安全状态，就暂时不答应这次请求，让该进程先阻塞等待。</p>
+<p>数据结构：<br>长度为 m 的一维数组 Available 表示还有多少可用资源<br>n<em>m 矩阵 Max 表示各进程对资源的最大需求数<br>n</em>m 矩阵 Allocation 表示已经给各进程分配了多少资源<br>Max – Allocation = Need 矩阵表示各进程最多还需要多少资源<br>用长度为 m 的一位数组 Request 表示进程此次申请的各种资源数   </p>
+<p>银行家算法步骤：<br>①检查此次申请是否超过了之前声明的最大需求数<br>②检查此时系统剩余的可用资源是否还能满足这次请求<br>③试探着分配，更改各数据结构<br>④用安全性算法检查此次分配是否会导致系统进入不安全状态   </p>
+<p>安全性算法步骤：<br>检查当前的剩余可用资源是否能满足某个进程的最大需求，如果可以，就把该进程加入安全序列，并把该进程持有的资源全部回收。<br>不断重复上述过程，看最终是否能让所有进程都加入安全序列。   </p>
+<p>系统处于不安全状态未必死锁，但死锁时一定处于不安全状态。系统处于安全状态一定不会死锁。</p>
+<h2 id="四、死锁的处理策略-——-检测和解除"><a href="#四、死锁的处理策略-——-检测和解除" class="headerlink" title="四、死锁的处理策略 —— 检测和解除"></a>四、死锁的处理策略 —— 检测和解除</h2><h3 id="4-1-死锁的检测"><a href="#4-1-死锁的检测" class="headerlink" title="4.1 死锁的检测"></a>4.1 死锁的检测</h3><p>为了能对系统是否已发生了死锁进行检测，必须：<br>①用某种数据结构来保存资源的请求和分配信息；<br>②提供一种算法，利用上述信息来检测系统是否已进入死锁状态。  </p>
+<p>资源分配图：</p>
+<p><img src="a.JPG" alt=""></p>
+<p>圆：进程结点，对应一个进程<br>矩形：资源结点，对应一类资源。一类资源可以有多个（矩形里面的小圆圈）<br>进程结点 ——&gt; 资源结点：表示进程想申请几个资源（每条边代表一个）<br>资源结点 ——&gt; 进程结点:表示已经为进程分配了几个资源（每条边代表一个）  </p>
+<p>如果系统中剩余的可用资源数足够满足进程的需求，那么这个进程暂时是不会阻塞的，可以顺利地执行下去。如果这个进程执行结束了把资源归还系统，就可能使某些正在等待资源的进程被激活，并顺利地执行下去。相应的，这些被激活的进程执行完了之后又会归还一些资源，这样可能又会激活另外一些阻塞的进程…</p>
+<p>即：依次消除与不阻塞进程的相连的边，直到无边可消。</p>
+<p>如果按上述过程分析，最终能消除所有边，就称这个图是可完全简化的。此时一定没有发生死锁（相当于能找到一个安全序列）。如果最终不能消除所有边，那么此时就是发生了死锁。最终还连着边的那些进程就是处于死锁状态的进程。</p>
+<h3 id="4-2-死锁的解除"><a href="#4-2-死锁的解除" class="headerlink" title="4.2 死锁的解除"></a>4.2 死锁的解除</h3><p>解除死锁的主要方法有：<br>1.资源剥夺法。挂起（暂时放到外存上）某些死锁进程，并抢占它的资源，将这些资源分配给其他的死锁进程。但是应防止被挂起的进程长时间得不到资源而饥饿。<br>2.撤销进程法（或称终止进程法）。强制撤销部分、甚至全部死锁进程，并剥夺这些进程的资源。这种方式的优点是实现简单，但所付出的代价可能会很大。因为有些进程可能已经运行了很长时间，已经接近结束了，一旦被终止可谓功亏一篑，以后还得从头再来。<br>3.进程回退法。让一个或多个死锁进程回退到足以避免死锁的地步。这就要求系统要记录进程的历史信息，设置还原点。</p>
+<p>怎么确定对那些死锁进程下手：<br>1.进程优先级<br>2.已执行多长时间<br>3.还要多久能完成<br>4.进程已经使用了多少资源<br>5.进程是交互式的还是批处理式的   </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,364 +270,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-08-13T10:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2020-08-13_进程互斥与同步</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/">2020-08-13_进程互斥与同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#死锁及其处理策略"><span class="toc-number">1.</span> <span class="toc-text">死锁及其处理策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、死锁的概念"><span class="toc-number">1.1.</span> <span class="toc-text">一、死锁的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-什么是死锁？"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 什么是死锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-死锁产生的必要条件"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 死锁产生的必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-什么时候会发生死锁"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 什么时候会发生死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-死锁的处理策略"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 死锁的处理策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、死锁的处理策略-——-预防死锁"><span class="toc-number">1.2.</span> <span class="toc-text">二、死锁的处理策略 —— 预防死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-破坏互斥条件"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 破坏互斥条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-破坏不剥夺条件"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 破坏不剥夺条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-破坏请求和保持条件"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 破坏请求和保持条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-破坏循环等待条件"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 破坏循环等待条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、死锁的处理策略-——-避免死锁"><span class="toc-number">1.3.</span> <span class="toc-text">三、死锁的处理策略 —— 避免死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-安全序列、不安全状态、死锁的联系"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 安全序列、不安全状态、死锁的联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-银行家算法"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 银行家算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、死锁的处理策略-——-检测和解除"><span class="toc-number">1.4.</span> <span class="toc-text">四、死锁的处理策略 —— 检测和解除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-死锁的检测"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 死锁的检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-死锁的解除"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 死锁的解除</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-08-10T08:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">2020-08-10_处理机调度算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-09T08:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">2020-08-09_进程和线程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-07T06:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">2020-08-07_操作系统中的一些基本概念</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-08-04T03:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/">2020-08-04_信息的位表示及运算</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-01T06:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/">2020-08-01_一个HTTP请求的历程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/" class="archive-article-date">
-  	<time datetime="2020-07-24T09:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/">2020-07-24_HTTP概况</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/" class="archive-article-date">
-  	<time datetime="2020-07-20T09:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/">2020-07-20_TCP可靠传输</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/2020-07-09_TCPandUDP/" class="archive-article-date">
-  	<time datetime="2020-07-09T06:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/2020-07-09_TCPandUDP/">2020-07-09_TCP和UDP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -589,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
