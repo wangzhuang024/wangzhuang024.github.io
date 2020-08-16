@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/8 | Hexo</title>
+  <title>2020-08-168-16_内存及连续分配方式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/08/index.html">
+  <meta name="description" content="内存的基本知识及内存连续分配管理方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-08-168-16_内存及连续分配方式">
+<meta property="og:url" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存的基本知识及内存连续分配管理方式">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/a.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/b.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/c.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/d.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/e.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/f.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/g.JPG">
+<meta property="article:published_time" content="2020-08-16T08:45:07.000Z">
+<meta property="article:modified_time" content="2020-08-16T11:52:17.173Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/a.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,35 +178,102 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-2020-08-16-内存及连续分配方式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      2020-08-168-16_内存及连续分配方式
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+
+        
+        <a href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2020-08-16T08:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">2020-08-168-16_内存及连续分配方式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="内存的基本知识及内存连续分配管理方式"><a href="#内存的基本知识及内存连续分配管理方式" class="headerlink" title="内存的基本知识及内存连续分配管理方式"></a>内存的基本知识及内存连续分配管理方式</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="一、内存的基础知识"><a href="#一、内存的基础知识" class="headerlink" title="一、内存的基础知识"></a>一、内存的基础知识</h2><h3 id="1-1-什么是内存？"><a href="#1-1-什么是内存？" class="headerlink" title="1.1 什么是内存？"></a>1.1 什么是内存？</h3><p>内存可存放数据。<strong>程序执行前需要先放到内存中才能被 CPU 处理</strong> —— 缓和 CPU 与硬盘之间的速度矛盾。内存地址从 0 开始，每个地址对应一个存储单元。<br>比如：一台手机/电脑有 4GB 内存，是什么意思？<br>是指该内存中可以存放 4*2^30 个字节。需要 2^32 个地址才能一一标识，所以地址需要用 32 个二进制位来表示（0 ~ 2^32-1）</p>
+<h3 id="1-2-操作系统对内存的管理"><a href="#1-2-操作系统对内存的管理" class="headerlink" title="1.2 操作系统对内存的管理"></a>1.2 操作系统对内存的管理</h3><p>操作系统负责<strong>内存空间的分配与回收</strong>。<br>操作系统需要提供某种技术从逻辑上<strong>对内存空间进行扩充</strong>。<br>操作系统需要提供<strong>地址转换功能</strong>，负责程序的逻辑地址与物理地址的转换。<br>操作系统需要提供<strong>内存保护功能</strong>。保证各进程在各自存储空间内运行，互不干扰。</p>
+<h2 id="二、内存保护"><a href="#二、内存保护" class="headerlink" title="二、内存保护"></a>二、内存保护</h2><p>内存保护可采取两种方法：<br>方法一：在CPU中设置一对上、下限寄存器，存放进程的上、下限地址。进程的指令要访问某个地址时，CPU检查是否越界。  </p>
+<p><img src="a.JPG" alt=""></p>
+<p>方法二：采用重定位寄存器（又称基址寄存器）和界地址寄存器（又称限长寄存器）进行越界检查。重定位寄存器中存放的是进程的起始物理地址。界地址寄<br>存器中存放的是进程的最大逻辑地址。</p>
+<p><img src="b.JPG" alt=""></p>
+<h2 id="三、地址转换"><a href="#三、地址转换" class="headerlink" title="三、地址转换"></a>三、地址转换</h2><h3 id="3-1-绝对装入"><a href="#3-1-绝对装入" class="headerlink" title="3.1 绝对装入"></a>3.1 绝对装入</h3><p>绝对装入：在编译时，如果知道程序将放到内存中的哪个位置，编译程序将产生绝对地址的目标代码。装入程序按照装入模块中的地址，将程序和数据装入内存。   </p>
+<p>绝对装入只适用于单道程序环境。</p>
+<h3 id="3-2-静态重定位"><a href="#3-2-静态重定位" class="headerlink" title="3.2 静态重定位"></a>3.2 静态重定位</h3><p>静态重定位：又称可重定位装入。编译、链接后的装入模块的地址都是从 0 开始的，指令中使用的地址、数据存放的地址都是相对于起始地址而言的逻辑地址。 可根据内存的当前情况，将装入模块装入到内存的适当位置。装入时对地址进行“重定位”，将逻辑地址变换为物理地址（地址变换是在装入时一次完成的）。</p>
+<p>静态重定位的特点是在一个作业装入内存时，必须分配其要求的全部内存空间，如果没有足够的内存，就不能装入该作业。作业一旦进入内存后，在运行期间就不能再移动，也不能再申请内存空间。</p>
+<h3 id="3-3-动态重定位"><a href="#3-3-动态重定位" class="headerlink" title="3.3 动态重定位"></a>3.3 动态重定位</h3><p>动态重定位：又称动态运行时装入。编译、链接后的装入模块的地址都是从 0 开始的。装入程序把装入模块装入内存后，并不会立即把逻辑地址转换为物理地址，而是把地址转换推迟到程序真正要执行时才进行。因此装入内存后所有的地址依然是逻辑地址。这种方式需要一个重定位寄存器（存放装入模块存放的起始位置）的支持。</p>
+<p>动态重定位可将程序分配到不连续的存储区中；在程序运行前只需装入它的部分代码即可投入运行，然后在程序运行期间，根据需要动态申请分配内存；便于程序段的共享，可以向用户提供一个比存储空间大得多的地址空间。采用动态重定位时允许程序在内存中发生移动。</p>
+<h2 id="四、内存扩充"><a href="#四、内存扩充" class="headerlink" title="四、内存扩充"></a>四、内存扩充</h2><h3 id="4-1-覆盖技术"><a href="#4-1-覆盖技术" class="headerlink" title="4.1 覆盖技术"></a>4.1 覆盖技术</h3><p>覆盖技术的思想：将程序分为多个段（多个模块）。常用的段常驻内存，不常用的段在需要时调入内存。<br>内存中分为一个“固定区”和若干个“覆盖区”。需要常驻内存的段放在“固定区” 中，调入后就不再调出（除非运行结束）。不常用的段放在“覆盖区”，需要用到时调入内存，用不到时调出内存。让那些不可能同时被访问的程序段共享同一个覆盖区。<br>缺点： 对用户不透明，增加了用户编程负担。现已淘汰。</p>
+<h3 id="4-2-交换技术"><a href="#4-2-交换技术" class="headerlink" title="4.2 交换技术"></a>4.2 交换技术</h3><p>交换（对换）技术的设计思想：内存空间紧张时，系统将内存中某些进程暂时换出外存，把外存中某些已具备运行条件的进程换入内存（进程在内存与磁盘间动态调度）。</p>
+<h4 id="应该在外存（磁盘）的什么位置保存被换出的进程？"><a href="#应该在外存（磁盘）的什么位置保存被换出的进程？" class="headerlink" title="应该在外存（磁盘）的什么位置保存被换出的进程？"></a>应该在外存（磁盘）的什么位置保存被换出的进程？</h4><p>具有对换功能的操作系统中，通常把磁盘空间分为文件区和对换区两部分。文件<br>区主要用于存放文件，主要追求存储空间的利用率，因此对文件区空间的管理采<br>用离散分配方式；对换区空间只占磁盘空间的小部分，被换出的进程数据就存放<br>在对换区。由于对换的速度直接影响到系统的整体速度，因此对换区空间的管理<br>主要追求换入换出速度，因此通常对换区采用连续分配方式。总之，对换区的 I/O 速度比文件区的更快。</p>
+<h4 id="什么时候应该交换？"><a href="#什么时候应该交换？" class="headerlink" title="什么时候应该交换？"></a>什么时候应该交换？</h4><p>交换通常在许多进程运行且内存吃紧时进行，而系统负荷降低就暂停。例如：在<br>发现许多进程运行时经常发生缺页，就说明内存紧张，此时可以换出一些进程；<br>如果缺页率明显下降，就可以暂停换出。</p>
+<h4 id="应该换出哪些进程？"><a href="#应该换出哪些进程？" class="headerlink" title="应该换出哪些进程？"></a>应该换出哪些进程？</h4><p>可优先换出阻塞进程；可换出优先级低的进程；为了防止优先级低的进程在被调入内存后很快又被换出，有的系统还会考虑进程在内存的驻留时间…</p>
+<h2 id="五、内存分配-——-连续分配管理方式"><a href="#五、内存分配-——-连续分配管理方式" class="headerlink" title="五、内存分配 —— 连续分配管理方式"></a>五、内存分配 —— 连续分配管理方式</h2><p>连续分配：指为用户进程分配的必须是一个连续的内存空间。<br>内部碎片：分配给某进程的内存区域中，如果有些部分没有用上。<br>外部碎片：是指内存中的某些空闲分区由于太小而难以利用。   </p>
+<h3 id="5-1-单一连续分配"><a href="#5-1-单一连续分配" class="headerlink" title="5.1 单一连续分配"></a>5.1 单一连续分配</h3><p>在单一连续分配方式中，内存被分为系统区和用户区。系统区通常位于内存的低地址部分，用于存放操作系统相关数据；用户区用于存放用户进程相关数据。内存中只能有一道用户程序，用户程序独占整个用户区空间。</p>
+<p><img src="c.JPG" alt=""></p>
+<p>优点：实现简单；无外部碎片。<br>缺点：只能用于单用户、单任务的操作系统中；有内部碎片；存储器利用率极低。</p>
+<h3 id="5-2-固定分区分配"><a href="#5-2-固定分区分配" class="headerlink" title="5.2 固定分区分配"></a>5.2 固定分区分配</h3><p>多道程序的系统，为了能在内存中装入多道程序，且这些程序之间又不会相互干扰，于是将整个用户空间划分为若干个固定大小的分区，在每个分区中只装入一道作业，这样就形成了最早的、最简单的一种可运行多道程序的内存管理方式。</p>
+<p>固定分区分配又分分区大小相等和分区大小不等两类</p>
+<p><img src="d.JPG" alt=""></p>
+<p>分区大小相等：缺乏灵活性，但是很适合用于用一台计算机控制多个相同对象的场合。<br>分区大小不等：增加了灵活性，可以满足不同大小的进程需求。根据常在系统中运行的作业大小情况进行划分。</p>
+<p>操作系统需要建立一个数据结构——分区说明表，来实现各个分区的分配与回收。 每个表项对应一个分区，通常按分区大小排列。每个表项包括对应分区的大小、 起始地址、状态（是否已分配）。</p>
+<p><img src="e.JPG" alt=""></p>
+<p>当某用户程序要装入内存时，由操作系统内核程序根据用户程序大小检索该表，从中找到一个能满足大小的、未分配的分区，将之分配给该程序，然后修改状态为“已分配”。</p>
+<p>优点：实现简单，无外部碎片。<br>缺点：当用户程序太大时，可能所有的分区都不能满足需求，此时不得不采用覆盖技术来解决，但这又会降低性能；会产生内部碎片，内存利用率低。</p>
+<h3 id="5-3-动态分区分配"><a href="#5-3-动态分区分配" class="headerlink" title="5.3 动态分区分配"></a>5.3 动态分区分配</h3><p>动态分区分配又称为可变分区分配。这种分配方式不会预先划分内存分区，而是在进程装入内存时，根据进程的大小动态地建立分区，并使分区的大小正好适合进程的需要。因此系统分区的大小和数目是可变的。 </p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>空闲分区表和空闲分区链 </p>
+<p><img src="f.JPG" alt=""></p>
+<p>空闲分区表：每个空闲分区对应一个表项。表项中包含分区号、分区大小、分区起始地址等信息。</p>
+<p><img src="g.JPG" alt=""></p>
+<p>空闲分区链：每个分区的起始部分和末尾部分分别设置前向指针和后向指针。起始部分处还可记录分区大小等信息。</p>
+<h4 id="动态分区分配算法"><a href="#动态分区分配算法" class="headerlink" title="动态分区分配算法"></a>动态分区分配算法</h4><p>首次适应算法<br>算法思想：每次都从低地址开始查找，找到第一个能满足大小的空闲分区。<br>如何实现：空闲分区以地址递增的次序排列。每次分配内存时顺序查找空闲分区链（或空闲分区表），找到大小能满足要求的第一个空闲分区。<br>缺点：每次都从链头开始查找的。这可能会导致低地址部分出现很多小的空闲<br>分区，而每次分配查找时，都要经过这些分区，因此也增加了查找的开销。</p>
+<p>最佳适应算法<br>算法思想：由于动态分区分配是一种连续分配方式，为各进程分配的空间必须是连续的一整片区域。 因此为了保证当“大进程”到来时能有连续的大片空间，可以尽可能多地留下大片的空闲区，即，优先使用更小的空闲区。<br>如何实现：空闲分区按容量递增次序链接。每次分配内存时顺序查找空闲分区链（或空闲分区表），找到大小能满足要求的第一个空闲分区。<br>缺点：每次都选最小的分区进行分配，会留下越来越多的、很小的、难以利用的内存块。因此这种方法会产生很多的外部碎片。</p>
+<p>最坏适应算法<br>又称最大适应算法（Largest Fit）<br>算法思想：为了解决最佳适应算法的问题——即留下太多难以利用的小碎片，可以在每次分配时优先使用最大的连续空闲区，这样分配后剩余的空闲区就不会太小，更方便使用。<br>如何实现：空闲分区按容量递减次序链接。每次分配内存时顺序查找空闲分区链（或空闲分区表），找到大小能满足要求的第一个空闲分区。<br>缺点：每次都选最大的分区进行分配，虽然可以让分配后留下的空闲区更大，更可用，但是这种方式会导致较大的连续空闲区被迅速用完。如果之后有“大进程”到达，就没有内存分区可用了。</p>
+<p>邻近适应算法<br>算法思想：首次适应算法每次都从链头开始查找的。这可能会导致低地址部分出现很多小的空闲分区，而每次分配查找时，都要经过这些分区，因此也增加了查找的开销。如果每次都从上次查找结束的位置开始检索，就能解决上述问题。<br>如何实现：空闲分区以地址递增的顺序排列（可排成一个循环链表）。每次分配内存时从上次查找结束的位置开始查找空闲分区链（或空闲分区表），找到大小能满足要求的第一个空闲分区。</p>
+<p>如果内存中空闲空间的总和本来可以满足某进程的要求，但由于进程需要的是一整块连续的内存空间，因此这些“碎片” 不能满足进程的需求。可以通过紧凑（拼凑， Compaction） 技术来解决外部碎片。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,285 +285,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-08-15T07:13:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2020-08-15_死锁及其处理策略</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">2020-08-15_死锁及其处理策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#内存的基本知识及内存连续分配管理方式"><span class="toc-number">1.</span> <span class="toc-text">内存的基本知识及内存连续分配管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、内存的基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">一、内存的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-什么是内存？"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 什么是内存？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-操作系统对内存的管理"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 操作系统对内存的管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、内存保护"><span class="toc-number">1.2.</span> <span class="toc-text">二、内存保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、地址转换"><span class="toc-number">1.3.</span> <span class="toc-text">三、地址转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-绝对装入"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 绝对装入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-静态重定位"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 静态重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-动态重定位"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 动态重定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、内存扩充"><span class="toc-number">1.4.</span> <span class="toc-text">四、内存扩充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-覆盖技术"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 覆盖技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-交换技术"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 交换技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#应该在外存（磁盘）的什么位置保存被换出的进程？"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">应该在外存（磁盘）的什么位置保存被换出的进程？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么时候应该交换？"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">什么时候应该交换？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应该换出哪些进程？"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">应该换出哪些进程？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、内存分配-——-连续分配管理方式"><span class="toc-number">1.5.</span> <span class="toc-text">五、内存分配 —— 连续分配管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-单一连续分配"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 单一连续分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-固定分区分配"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 固定分区分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-动态分区分配"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 动态分区分配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据结构"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态分区分配算法"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">动态分区分配算法</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-08-13T10:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/">2020-08-13_进程互斥与同步</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-08-10T08:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">2020-08-10_处理机调度算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-09T08:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">2020-08-09_进程和线程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-07T06:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">2020-08-07_操作系统中的一些基本概念</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-08-04T03:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/04/2020-08-04-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/">2020-08-04_信息的位表示及运算</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-01T06:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/">2020-08-01_一个HTTP请求的历程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -509,8 +423,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
