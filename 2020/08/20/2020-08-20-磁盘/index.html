@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>磁盘 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="磁盘的基本知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="磁盘">
+<meta property="og:url" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="磁盘的基本知识">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/a.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/b.JPG">
+<meta property="article:published_time" content="2020-08-20T06:39:43.000Z">
+<meta property="article:modified_time" content="2020-08-20T07:23:59.338Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/a.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,15 +173,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-2020-08-20-磁盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-2020-08-20-磁盘" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/">磁盘</a>
+    <h1 class="article-title" itemprop="name">
+      磁盘
     </h1>
   
 
@@ -186,12 +193,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="磁盘的基本知识"><a href="#磁盘的基本知识" class="headerlink" title="磁盘的基本知识"></a>磁盘的基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/#more">more >></a>
-        
+        <h1 id="磁盘的基本知识"><a href="#磁盘的基本知识" class="headerlink" title="磁盘的基本知识"></a>磁盘的基本知识</h1><a id="more"></a>
+<h2 id="一、磁盘的结构"><a href="#一、磁盘的结构" class="headerlink" title="一、磁盘的结构"></a>一、磁盘的结构</h2><p>磁盘的表面由一些磁性物质组成，可以用这些磁性物质来记录二进制数据。<br>磁盘的盘面被划分成一个个磁道。这样的一个“圈”就是一个磁道。<br>一个磁道又被划分成一个个扇区，每个扇区就是一个“磁盘块”。各个扇区存放的数据量相同。<br>需要把“磁头”移动到想要读/写的扇区所在的磁道。磁盘会转起来，让目标扇区从磁头下面划过，才能完成对扇区的读/写操作。<br>磁盘有多个盘片“摞”起来，每个盘片有两个盘面。<br>所有盘面中相对位置相同的磁道组成柱面。<br>可用（柱面号，盘面号，扇区号）来定位任意一个“磁盘块”。<br><img src="a.JPG" alt=""><br>可根据该地址读取一个“块”:<br>①根据“柱面号”移动磁臂，让磁头指向指定柱面；<br>②激活指定盘面对应的磁头；<br>③磁盘旋转的过程中，指定的扇区会从磁头下面划过，这样就完成了对指定扇区的读/写。  </p>
+<p>根据磁头是否可移动，磁盘分为移动头磁盘（每个盘面只有一个磁头）和固定头磁盘（每个磁道有一个磁头）。<br>根据盘片是否可更换，磁盘分为固定盘磁盘和可换盘磁盘。</p>
+<h2 id="二、磁盘调度算法"><a href="#二、磁盘调度算法" class="headerlink" title="二、磁盘调度算法"></a>二、磁盘调度算法</h2><h3 id="2-1-先来先服务算法（FCFS）"><a href="#2-1-先来先服务算法（FCFS）" class="headerlink" title="2.1 先来先服务算法（FCFS）"></a>2.1 先来先服务算法（FCFS）</h3><p>根据进程请求访问磁盘的先后顺序进行调度。<br>优点：公平；如果请求访问的磁道比较集中的话，算法性能还算过的去。<br>缺点：如果有大量进程竞争使用磁盘，请求访问的磁道很分散，则FCFS在性能上很差，寻道时间长。  </p>
+<h3 id="2-2-最短寻找时间优先（SSTF）"><a href="#2-2-最短寻找时间优先（SSTF）" class="headerlink" title="2.2 最短寻找时间优先（SSTF）"></a>2.2 最短寻找时间优先（SSTF）</h3><p>SSTF算法会优先处理的磁道是与当前磁头最近的磁道。可以保证每次的寻道时间最短，但是并不能保证总的寻道时间最短。（其实就是贪心算法的思想，只是选择眼前最优，但是总体未必最优）<br>优点：性能较好，平均寻道时间短。<br>缺点：可能产生“饥饿”现象。  </p>
+<h3 id="2-3-扫描算法（SCAN）"><a href="#2-3-扫描算法（SCAN）" class="headerlink" title="2.3 扫描算法（SCAN）"></a>2.3 扫描算法（SCAN）</h3><p>SSTF 算法会产生饥饿的原因在于：磁头有可能在一个小区域内来回来去地移动。为了防止这个问题，可以规定，只有磁头移动到最外侧磁道的时候才能往内移动，移动到最内侧磁道的时候才能往外移动。这就是扫描算法（SCAN）的思想。由于磁头移动的方式很像电梯，因此也叫电梯算法。<br>优点：性能较好，平均寻道时间较短，不会产生饥饿现象。<br>缺点：只有到达最边上的磁道时才能改变磁头移动方向，SCAN算法对于各个位置磁道的响应频率不平均。</p>
+<h3 id="2-4-LOOK-调度算法"><a href="#2-4-LOOK-调度算法" class="headerlink" title="2.4 LOOK 调度算法"></a>2.4 LOOK 调度算法</h3><p>扫描算法（SCAN）中，只有到达最边上的磁道时才能改变磁头移动方向。LOOK调度算法就是为了解决这个问题，如果在磁头移动方向上已经没有别的请求，就可以立即改变磁头移动方向。（边移动边观察，因此叫LOOK）<br>优点：比起SCAN算法来，不需要每次都移动到最外侧或最内侧才改变磁头方向，使寻道时间进一步缩短。</p>
+<h3 id="2-5-循环扫描算法（C-SCAN）"><a href="#2-5-循环扫描算法（C-SCAN）" class="headerlink" title="2.5 循环扫描算法（C-SCAN）"></a>2.5 循环扫描算法（C-SCAN）</h3><p>SCAN 算法对于各个位置磁道的响应频率不平均，而 C-SCAN 算法就是为了解决这个问题。规定只有磁头朝某个特定方向移动时才处理磁道访问请求，而返回时直接快速移动至起始端而不处理任何请求。即只有到了最边上的磁道才能改变磁头移动方向。磁头返回途中不处理任何请求。<br>优点：比起 SCAN 来，对于各个位置磁道的响应频率很平均。<br>缺点：只有到达最边上的磁道时才能改变磁头移动方向；并且，磁头返回时其实，不需要返回到最边缘的磁道。另外，比起SCAN算法来，平均寻道时间更长。</p>
+<h3 id="2-6-C-LOOK-调度算法"><a href="#2-6-C-LOOK-调度算法" class="headerlink" title="2.6 C-LOOK 调度算法"></a>2.6 C-LOOK 调度算法</h3><p>C-SCAN 算法的主要缺点是只有到达最边上的磁道时才能改变磁头移动方向，并且磁头返回时不一定需要返回到最边缘的磁道上。 C-LOOK 算法就是为了解决这个问题。如果磁头移动的方向上已经没有磁道访问请求了，就可以立即让磁头返回，并且磁头只需要返回到有磁道访问请求的位置即可。<br>优点：比起 C-SCAN 算法来，不需要每次都移动到最外侧或最内侧才改变磁头方向，使寻道时间进一步缩短。</p>
+<h2 id="三、减少延迟时间的方法"><a href="#三、减少延迟时间的方法" class="headerlink" title="三、减少延迟时间的方法"></a>三、减少延迟时间的方法</h2><p>交替编号：<br>具体做法：让编号相邻的扇区在物理上不相邻。<br>原理：读取完一个扇区后需要一段时间处理才可以继续读入下一个扇区。 </p>
+<p>错位命名：<br>具体做法：让相邻盘面的扇区编号“错位”。<br>原理：与“交替编号”的原理相同。“错位命名法”可降低延迟时间。  </p>
+<p>为什么磁盘的物理地址是（柱面号，盘面号，扇区号）而不是（盘面号，柱面号，扇区号）？<br>答：读取地址连续的磁盘块时，采用（柱面号，盘面号，扇区号）的地址结构可以减少磁头移动消耗的时间。</p>
+<h2 id="四、磁盘的管理"><a href="#四、磁盘的管理" class="headerlink" title="四、磁盘的管理"></a>四、磁盘的管理</h2><h3 id="4-1-磁盘初始化："><a href="#4-1-磁盘初始化：" class="headerlink" title="4.1 磁盘初始化："></a>4.1 磁盘初始化：</h3><p>Step1：进行低级格式化（物理格式化），将磁盘的各个磁道划分为扇区。一个扇区通常可分为头、数据区域、尾三个部分组成。管理扇区所需要的各种数据结构一般存放在头、尾两个部分，包括扇区校验码等。<br>Step2：将磁盘分区，每个分区由若干柱面组成（即分为我们熟悉的C盘、D盘、E盘）。<br>Step3：进行逻辑格式化，创建文件系统。包括创建文件系统的根目录、初始化存储空间管理所用的数据结构。<br><img src="b.JPG" alt="">  </p>
+<h3 id="4-2-引导块"><a href="#4-2-引导块" class="headerlink" title="4.2 引导块"></a>4.2 引导块</h3><p>计算机开机时需要进行一系列初始化的工作，这些初始化工作是通过执行初始化程序（自举程序）完成的。  </p>
+<p>ROM中只存放很小的“自举装入程序”。注：ROM一般是出厂时就集成在主板上的。<br>开机时计算机先运行“自举装入程序”，通过执行该程序就可找到引导块，并将完完整的“自举程序”读入内存，完成初始化。</p>
+<h3 id="4-3-坏块管理"><a href="#4-3-坏块管理" class="headerlink" title="4.3 坏块管理"></a>4.3 坏块管理</h3><p>坏了、无法正常使用的扇区就是“坏块”。这属于硬件故障，操作系统是无法修复的。应该将坏块标记出来，以免错误地使用到它。  </p>
+<p>对于简单的磁盘，可以在逻辑格式化时（建立文件系统时）对整个磁盘进行坏块检查，标明哪些扇区是坏扇区，比如：在FAT表上标明。（在这种方式中，坏块对操作系统不透明）。</p>
+<p>对于复杂的磁盘，磁盘控制器（磁盘设备内部的一个硬件部件）会维护一个坏块链表。<br>在磁盘出厂前进行低级格式化（物理格式化）时就将坏块链进行初始化。<br>会保留一些“备用扇区”，用于替换坏块。这种方案称为扇区备用。且这种处理方式中，坏块对操作系统透明。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -211,16 +259,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">文件管理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,701 +342,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-19-文件管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">文件管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-08-19T08:05:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件管理的基本知识"><a href="#文件管理的基本知识" class="headerlink" title="文件管理的基本知识"></a>文件管理的基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#磁盘的基本知识"><span class="toc-number">1.</span> <span class="toc-text">磁盘的基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、磁盘的结构"><span class="toc-number">1.1.</span> <span class="toc-text">一、磁盘的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、磁盘调度算法"><span class="toc-number">1.2.</span> <span class="toc-text">二、磁盘调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-先来先服务算法（FCFS）"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 先来先服务算法（FCFS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-最短寻找时间优先（SSTF）"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 最短寻找时间优先（SSTF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-扫描算法（SCAN）"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 扫描算法（SCAN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-LOOK-调度算法"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 LOOK 调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-循环扫描算法（C-SCAN）"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 循环扫描算法（C-SCAN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-C-LOOK-调度算法"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.6 C-LOOK 调度算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、减少延迟时间的方法"><span class="toc-number">1.3.</span> <span class="toc-text">三、减少延迟时间的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、磁盘的管理"><span class="toc-number">1.4.</span> <span class="toc-text">四、磁盘的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-磁盘初始化："><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 磁盘初始化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-引导块"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 引导块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-坏块管理"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 坏块管理</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-2020-08-18-虚拟内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/2020-08-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">虚拟内存</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/18/2020-08-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-08-18T08:03:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="虚拟内存基本知识及其分配管理方式"><a href="#虚拟内存基本知识及其分配管理方式" class="headerlink" title="虚拟内存基本知识及其分配管理方式"></a>虚拟内存基本知识及其分配管理方式</h1>
-        
-          <a class="article-more-a" href="/2020/08/18/2020-08-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/2020-08-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-17-内存非连续分配方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/17/2020-08-17-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">内存非连续分配方式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/17/2020-08-17-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-08-17T07:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内存分配-——-非连续分配管理方式"><a href="#内存分配-——-非连续分配管理方式" class="headerlink" title="内存分配 —— 非连续分配管理方式"></a>内存分配 —— 非连续分配管理方式</h1>
-        
-          <a class="article-more-a" href="/2020/08/17/2020-08-17-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/17/2020-08-17-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-16-内存及连续分配方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">内存及连续分配方式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-08-16T08:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内存的基本知识及内存连续分配管理方式"><a href="#内存的基本知识及内存连续分配管理方式" class="headerlink" title="内存的基本知识及内存连续分配管理方式"></a>内存的基本知识及内存连续分配管理方式</h1>
-        
-          <a class="article-more-a" href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/16/2020-08-16-%E5%86%85%E5%AD%98%E5%8F%8A%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-15-死锁及其处理策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">死锁及其处理策略</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-08-15T07:13:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="死锁及其处理策略"><a href="#死锁及其处理策略" class="headerlink" title="死锁及其处理策略"></a>死锁及其处理策略</h1>
-        
-          <a class="article-more-a" href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/15/2020-08-15-%E6%AD%BB%E9%94%81%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-13-进程互斥与同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/">进程互斥与同步</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-08-13T10:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程互斥与同步"><a href="#进程互斥与同步" class="headerlink" title="进程互斥与同步"></a>进程互斥与同步</h1>
-        
-          <a class="article-more-a" href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/13/2020-08-13-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-10-处理机调度算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">处理机调度算法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-08-10T08:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="处理机调度算法"><a href="#处理机调度算法" class="headerlink" title="处理机调度算法"></a>处理机调度算法</h1>
-        
-          <a class="article-more-a" href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/10/2020-08-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-09-进程和线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">进程和线程</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-09T08:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程和线程的一些基本知识"><a href="#进程和线程的一些基本知识" class="headerlink" title="进程和线程的一些基本知识"></a>进程和线程的一些基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/09/2020-08-09-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-08-07-操作系统基本概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">操作系统中的一些基本概念</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-07T06:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="操作系统中的一些基本概念"><a href="#操作系统中的一些基本概念" class="headerlink" title="操作系统中的一些基本概念"></a>操作系统中的一些基本概念</h1>
-        
-          <a class="article-more-a" href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/07/2020-08-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -955,8 +393,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
