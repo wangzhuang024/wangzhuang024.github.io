@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/a.JPG">
 <meta property="og:image" content="http://yoursite.com/2020/08/20/2020-08-20-%E7%A3%81%E7%9B%98/b.JPG">
 <meta property="article:published_time" content="2020-08-20T06:39:43.000Z">
-<meta property="article:modified_time" content="2020-08-20T07:23:59.338Z">
+<meta property="article:modified_time" content="2020-08-20T07:27:35.477Z">
 <meta property="article:author" content="wangzhuang">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 <h3 id="4-2-引导块"><a href="#4-2-引导块" class="headerlink" title="4.2 引导块"></a>4.2 引导块</h3><p>计算机开机时需要进行一系列初始化的工作，这些初始化工作是通过执行初始化程序（自举程序）完成的。  </p>
 <p>ROM中只存放很小的“自举装入程序”。注：ROM一般是出厂时就集成在主板上的。<br>开机时计算机先运行“自举装入程序”，通过执行该程序就可找到引导块，并将完完整的“自举程序”读入内存，完成初始化。</p>
 <h3 id="4-3-坏块管理"><a href="#4-3-坏块管理" class="headerlink" title="4.3 坏块管理"></a>4.3 坏块管理</h3><p>坏了、无法正常使用的扇区就是“坏块”。这属于硬件故障，操作系统是无法修复的。应该将坏块标记出来，以免错误地使用到它。  </p>
-<p>对于简单的磁盘，可以在逻辑格式化时（建立文件系统时）对整个磁盘进行坏块检查，标明哪些扇区是坏扇区，比如：在FAT表上标明。（在这种方式中，坏块对操作系统不透明）。</p>
+<p>对于简单的磁盘，可以在逻辑格式化时（建立文件系统时）对整个磁盘进行坏块检查，标明哪些扇区是坏扇区，比如：在 FAT 表上标明。（在这种方式中，坏块对操作系统不透明）。</p>
 <p>对于复杂的磁盘，磁盘控制器（磁盘设备内部的一个硬件部件）会维护一个坏块链表。<br>在磁盘出厂前进行低级格式化（物理格式化）时就将坏块链进行初始化。<br>会保留一些“备用扇区”，用于替换坏块。这种方案称为扇区备用。且这种处理方式中，坏块对操作系统透明。</p>
 
       
@@ -319,6 +319,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/08/21/2020-08-21-I-O%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          I/O管理
+        
+      </div>
+    </a>
   
   
     <a href="/2020/08/19/2020-08-19-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
