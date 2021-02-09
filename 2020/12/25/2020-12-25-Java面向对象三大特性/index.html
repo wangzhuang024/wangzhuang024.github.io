@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Java面向对象三大特性 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="封装、继承、多态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面向对象三大特性">
+<meta property="og:url" content="http://yoursite.com/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="封装、继承、多态">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/a3.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/a1.JPG">
+<meta property="og:image" content="http://yoursite.com/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/a2.JPG">
+<meta property="article:published_time" content="2020-12-25T07:31:31.000Z">
+<meta property="article:modified_time" content="2021-02-09T04:00:45.037Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="Java基本知识">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/a3.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,404 +174,270 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-2020-12-25-Java面向对象三大特性" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java面向对象三大特性
+    </h1>
+  
+
+        
+        <a href="/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2020-12-25T07:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h1><a id="more"></a>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>概念：尽可能的隐藏对象的内部实现细节，控制对象的修改及访问的权限。<br>访问修饰符：private(可将属性修饰为私有，仅本类可见)(私有属性在类的外部不可访问)数据安全问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	int age;</span><br><span class="line">	String sex;</span><br><span class="line">	double score;</span><br><span class="line">	</span><br><span class="line">	public void sayHi()&#123;</span><br><span class="line">		System.out.println(&quot;姓名：&quot;+this.name+&quot; 年龄：&quot;+this.age+&quot; 性别：&quot;+this.sex+&quot; 成绩：&quot;+this.score);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Student s1&#x3D;new Student();</span><br><span class="line">		s1.name&#x3D;&quot;zhangsan&quot;;&#x2F;&#x2F;报错</span><br><span class="line">		&#x2F;&#x2F;在对象外为对象赋可能存在非法数据录入</span><br><span class="line">		s1.age&#x3D;1000;</span><br><span class="line">		s1.sex&#x3D;&quot;male&quot;;</span><br><span class="line">		s1.score&#x3D;100;</span><br><span class="line">		s1.sayHi();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在类当中添加 set、 get 方法。提供公共访问方法，以保证数据正常输入。<br>外界不可直接访问，仅可访问公共方法。<br>get/set 方法是外界访问对象私有属性的唯一通道，方法内部可对数据进行检测和过滤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">	String name;</span><br><span class="line">	private int age;</span><br><span class="line">	String sex;</span><br><span class="line">	double score;</span><br><span class="line">	</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		&#x2F;&#x2F;非法数据判断</span><br><span class="line">		if(age&gt;&#x3D;0&amp;&amp;age&lt;&#x3D;120)</span><br><span class="line">			this.age &#x3D; age;</span><br><span class="line">		else</span><br><span class="line">			this.age &#x3D; 18;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void sayHi()&#123;</span><br><span class="line">		System.out.println(&quot;姓名：&quot;+this.name+&quot; 年龄：&quot;+this.age+&quot; 性别：&quot;+this.sex+&quot; 成绩：&quot;+this.score);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Student s1&#x3D;new Student();</span><br><span class="line">		s1.name&#x3D;&quot;zhangsan&quot;;</span><br><span class="line">		s1.setAge(1000);</span><br><span class="line">		s1.sex&#x3D;&quot;male&quot;;</span><br><span class="line">		s1.score&#x3D;100;</span><br><span class="line">		s1.sayHi();</span><br><span class="line">        System.out.println(s1.getAge());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="可继承"><a href="#可继承" class="headerlink" title="可继承"></a>可继承</h3><p>程序种的继承是类与类之间的特征和行为的一种赠与或获得<br>两个类之间的继承关系，必须满足”is a”的关系(dog is an Animal)<br>Animal:父类   dog:子类<br>可根据程序需要用到的多个具体类，进行共性抽取，进而定义父类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Dog extends Animal&#123;</span><br><span class="line">&#x2F;&#x2F;	String breed;</span><br><span class="line">&#x2F;&#x2F;	int age;</span><br><span class="line">&#x2F;&#x2F;	String sex;</span><br><span class="line">	</span><br><span class="line">	String furColor;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;	public void eat()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;吃&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">&#x2F;&#x2F;	public void sleep()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;睡&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">	public void run()&#123;</span><br><span class="line">		System.out.println(&quot;跑&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Bird extends Animal &#123;</span><br><span class="line">&#x2F;&#x2F;	String breed;</span><br><span class="line">&#x2F;&#x2F;	int age;</span><br><span class="line">&#x2F;&#x2F;	String sex;</span><br><span class="line">	String furColor;</span><br><span class="line">&#x2F;&#x2F;	public void eat()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;吃&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">&#x2F;&#x2F;	public void sleep()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;睡&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">	public void fly()&#123;</span><br><span class="line">		System.out.println(&quot;飞&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Fish extends Animal&#123;</span><br><span class="line">&#x2F;&#x2F;	String breed;</span><br><span class="line">&#x2F;&#x2F;	int age;</span><br><span class="line">&#x2F;&#x2F;	String sex;</span><br><span class="line">&#x2F;&#x2F;	public void eat()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;吃&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">&#x2F;&#x2F;	public void sleep()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;睡&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">	public void swim()&#123;</span><br><span class="line">		System.out.println(&quot;游&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Snake &#123;</span><br><span class="line">&#x2F;&#x2F;	String breed;</span><br><span class="line">&#x2F;&#x2F;	int age;</span><br><span class="line">&#x2F;&#x2F;	String sex;</span><br><span class="line">&#x2F;&#x2F;	public void eat()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;吃&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">&#x2F;&#x2F;	public void sleep()&#123;</span><br><span class="line">&#x2F;&#x2F;		System.out.println(&quot;睡&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">	public void crawl()&#123;</span><br><span class="line">		System.out.println(&quot;爬&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Animal &#123;</span><br><span class="line">	String breed;</span><br><span class="line">	int age;</span><br><span class="line">	String sex;</span><br><span class="line">	public void eat()&#123;</span><br><span class="line">		System.out.println(&quot;吃&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void sleep()&#123;</span><br><span class="line">		System.out.println(&quot;睡&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Test2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Dog d&#x3D;new Dog();</span><br><span class="line">		d.breed&#x3D;&quot;金毛&quot;;</span><br><span class="line">		d.age&#x3D;2;</span><br><span class="line">		d.sex&#x3D;&quot;公&quot;;</span><br><span class="line">		d.furColor&#x3D;&quot;白&quot;;</span><br><span class="line">		</span><br><span class="line">		d.eat();</span><br><span class="line">		d.sleep();</span><br><span class="line">		d.run();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>语法：class 子类 extends 父类{}<br>应用：产生继承关系后，子类可以使用父类中的属性和方法，也可以定义子类独有的属性和方法。<br>好处：既提高了代码的复用性，又提高了代码的可扩展性。<br>Java 中为单继承，<strong>一个子类只能有一个直接父类</strong>，但可以多级继承，属性和方法逐级叠加。  </p>
+<h3 id="不可继承："><a href="#不可继承：" class="headerlink" title="不可继承："></a>不可继承：</h3><p>父类的构造方法，类中的构造方法只负责创建本类对象，不可继承。<br>private 修饰的属性和方法。<br>父类子类不在同一个 package 中，父类的属性和方法使用 default 修饰符。     </p>
+<p><img src="a3.JPG" alt=""> </p>
+<p>当父类提供的方法无法满足子类需求时，可在子类中定义和父类相同的方法进行覆盖(Override)<br>补充：[重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。]   </p>
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>方法重写的原则：</p>
+<ul>
+<li>方法名称、参数列表、返回值类型必须与父类相同。</li>
+<li>访问修饰符不能比父类更严格。</li>
+</ul>
+<p>子类覆盖父类方法后，调用时优先执行子类覆盖后的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Dog extends Animal&#123;</span><br><span class="line">	</span><br><span class="line">	String furColor;</span><br><span class="line">	@Override &#x2F;&#x2F;注解：验证是否遵循重写规则</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;大口吃....&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void run()&#123;</span><br><span class="line">		System.out.println(&quot;跑&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="super-关键字"><a href="#super-关键字" class="headerlink" title="super 关键字"></a>super 关键字</h3><p>在子类中可直接访问从父类继承到的属性和方法，但如果父子类的属性或者方法存在重名(属性遮蔽、方法覆盖)时，需要加以区分，才可专项访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Father &#123;</span><br><span class="line">	int value&#x3D;100;</span><br><span class="line">	public void show() &#123;</span><br><span class="line">		System.out.println(&quot;Father的show方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Son extends Father&#123;</span><br><span class="line">	int value&#x3D;200;</span><br><span class="line">	@Override</span><br><span class="line">	public void show() &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		super.show();</span><br><span class="line">		System.out.println(&quot;Son的show方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void print()&#123;</span><br><span class="line">		int value&#x3D;300;</span><br><span class="line">		System.out.println(value);&#x2F;&#x2F;局部变量 300</span><br><span class="line">		System.out.println(this.value);&#x2F;&#x2F;本类的实例变量 200</span><br><span class="line">		System.out.println(super.value);&#x2F;&#x2F;父类的实例变量 100</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Test3 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Son son &#x3D;new Son();</span><br><span class="line">		son.show();</span><br><span class="line">		son.print();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="继承中对象的创建"><a href="#继承中对象的创建" class="headerlink" title="继承中对象的创建"></a>继承中对象的创建</h3><p>在具有继承关系的对象创建中，构建子类对象会先构建父类对象。<br>由父类的共性内容，叠加子类的独有内容，组合成完整的子类对象。 </p>
+<p><strong>构建子类对象时，先构建父类对象。</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line">	int num1;</span><br><span class="line">	int num2;</span><br><span class="line">	</span><br><span class="line">	public A() &#123;</span><br><span class="line">		System.out.println(&quot;A的默认构造方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void m1()&#123;</span><br><span class="line">		System.out.println(&quot;A类的m1方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class B extends A&#123;</span><br><span class="line">	super();&#x2F;&#x2F;第一条语句，调用父类无参构造方法,不写默认添加。</span><br><span class="line">	int num3;</span><br><span class="line">	public B() &#123;</span><br><span class="line">		System.out.println(&quot;B的默认构造方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void m2()&#123;</span><br><span class="line">		System.out.println(&quot;B类的m2方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Test4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		B b&#x3D;new B();</span><br><span class="line">		b.m1();</span><br><span class="line">		b.m2();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="a1.JPG" alt=""> </p>
+<p><img src="a2.JPG" alt=""> </p>
+<p>super(实参)调用父类中的带参构造。</p>
+<h3 id="this-与-super"><a href="#this-与-super" class="headerlink" title="this 与 super"></a>this 与 super</h3><p>this 表示当前对象引用，调用本类(包括继承)的属性、方法、本类构造方法。<br>super 表示父类对象引用，调用父类的属性、方法、构造方法。<br>不能同时使用，<strong>使用在构造方法中</strong>都只能在首行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line">	public A() &#123;</span><br><span class="line">		System.out.println(&quot;A-无参构造&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public A(int value)&#123;</span><br><span class="line">		System.out.println(&quot;A-有参构造&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class B extends A&#123;</span><br><span class="line">	public B() &#123;</span><br><span class="line">		super();&#x2F;&#x2F;调用A的无参构造public A()</span><br><span class="line">		System.out.println(&quot;B-无参构造&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public B(int value) &#123;</span><br><span class="line">		this();&#x2F;&#x2F;调用无参构造public B()</span><br><span class="line">		System.out.println(&quot;B-有参构造&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>概念：父类引用指向子类对象，从而产生多种形态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Animal a&#x3D;new Dog();</span><br></pre></td></tr></table></figure>
+
+<p>二者具有直接或者间接的继承关系时，父类引用可指向子类对象，即形成多态。<br>父类引用仅可调用父类所声明的属性和方法，不可调用子类独有的属性和方法。<br><strong>如果子类中重写了父类的方法，则执行子类中重写后的方法</strong>。   </p>
+<p>应用：<br>1.使用父类作为方法形参实现多态，使方法参数的类型更为广泛；<br>2.使用父类作为方法返回值实现多态，使方法可以返回不同的子类对象；</p>
+<p>父类作为方法形参:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Master &#123;</span><br><span class="line">	String name;</span><br><span class="line">	public void feed(Animal animal) &#123;</span><br><span class="line">		System.out.println(this.name+&quot;喂食&quot;);</span><br><span class="line">		animal.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class TestMaster &#123;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Master  master&#x3D;new Master();</span><br><span class="line">		master.name&#x3D;&quot;小王&quot;;</span><br><span class="line">		Dog dog&#x3D;new Dog();</span><br><span class="line">		Fish fish&#x3D;new Fish();</span><br><span class="line">		master.feed(dog);</span><br><span class="line">		master.feed(fish);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>父类作为方法返回值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public Animal buy(int type)&#123;</span><br><span class="line">	Animal animal&#x3D;null;</span><br><span class="line">	if(type&#x3D;&#x3D;1)&#123;</span><br><span class="line">		animal&#x3D;new Dog();</span><br><span class="line">	&#125;else if(type&#x3D;&#x3D;2)&#123;</span><br><span class="line">		animal&#x3D;new Fish();</span><br><span class="line">	&#125;</span><br><span class="line">	return animal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>向上类型转换：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Animal a&#x3D;new Dog();</span><br></pre></td></tr></table></figure>
+<p>父类引用中保存真实子类对象，称为向上转型。(仅可调用 Animal 中所声明的属性和方法)</p>
+<p>向下类型转换：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animal a&#x3D;new Dog();&#x2F;&#x2F;先向上类型转换：</span><br><span class="line">Dog dog &#x3D; (Dog) a;&#x2F;&#x2F;才有向下类型转换：</span><br></pre></td></tr></table></figure>
+<p>将父类引用中的真实子类对象强转回子类本身类型，称为向下转型。<br>只有转换回子类真实类型，才可调用子类独有的属性和方法。<br>向下转型时，如果父类引用中的子类对象类型和目标类型不匹配，则会发生类型转换异常。(instanceof 关键字)  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(a instanceof Dog)&#123;</span><br><span class="line">	Dog dog&#x3D;(Dog)a;</span><br><span class="line">&#125;else if(a instanceof Fish)&#123;</span><br><span class="line">	Fish fish&#x3D;(Fish)a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>多态的作用：<br>屏蔽子类间的差异。<br>灵活、耦合度低。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/23/2020-09-23-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" class="archive-article-date">
-  	<time datetime="2020-09-23T10:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/23/2020-09-23-%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/">进程互斥与同步</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/10/2020-09-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-10T08:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java中的常用类
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/21/2020-12-21-I-O%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">I/O管理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/10/2020-09-10-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">处理机调度算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#封装、继承、多态"><span class="toc-number">1.</span> <span class="toc-text">封装、继承、多态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#封装"><span class="toc-number">1.1.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">1.2.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可继承"><span class="toc-number">1.2.1.</span> <span class="toc-text">可继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可继承："><span class="toc-number">1.2.2.</span> <span class="toc-text">不可继承：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重写"><span class="toc-number">1.2.3.</span> <span class="toc-text">重写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-关键字"><span class="toc-number">1.2.4.</span> <span class="toc-text">super 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承中对象的创建"><span class="toc-number">1.2.5.</span> <span class="toc-text">继承中对象的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this-与-super"><span class="toc-number">1.2.6.</span> <span class="toc-text">this 与 super</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多态"><span class="toc-number">1.3.</span> <span class="toc-text">多态</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/29/2020-08-29-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-29T08:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/29/2020-08-29-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">进程和线程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/17/2020-08-17-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2020-08-17T06:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/17/2020-08-17-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">操作系统中的一些基本概念</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/08/2020-08-08-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-08-08T03:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/08/2020-08-08-%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BD%8D%E8%A1%A8%E7%A4%BA%E5%8F%8A%E8%BF%90%E7%AE%97/">信息的位表示及运算</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-01T06:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/2020-08-01-%E4%B8%80%E4%B8%AAHTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8E%86%E7%A8%8B/">一个HTTP请求的历程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/" class="archive-article-date">
-  	<time datetime="2020-07-24T09:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/2020-07-24-HTTP%E6%A6%82%E5%86%B5/">HTTP概况</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/" class="archive-article-date">
-  	<time datetime="2020-07-20T09:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/20/2020-07-20-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/">TCP可靠传输</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/2020-07-09_TCPandUDP/" class="archive-article-date">
-  	<time datetime="2020-07-09T06:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/2020-07-09_TCPandUDP/">TCP和UDP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-05T01:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -589,8 +464,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
