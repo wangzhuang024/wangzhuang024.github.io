@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Java的三个修饰符 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="abstract、static、final">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的三个修饰符">
+<meta property="og:url" content="http://yoursite.com/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="abstract、static、final">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-11T02:30:04.000Z">
+<meta property="article:modified_time" content="2021-02-16T04:58:30.133Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="Java基本知识">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -165,241 +170,224 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-2021-01-11-Java的三个修饰符" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java的三个修饰符
+    </h1>
+  
+
+        
+        <a href="/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2021-01-11T02:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="abstract、static、final"><a href="#abstract、static、final" class="headerlink" title="abstract、static、final"></a>abstract、static、final</h1><a id="more"></a>
+<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><!-- ![](a1.JPG) -->
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>被 abstract 修饰的类，称为抽象类。<br>抽象类意为不够完整的类、不够具体的类，抽象类对象无法独立存在，即不能 new 对象。   </p>
+<p>作用：<br>可被子类继承，提供共性属性和方法。<br>可声明为引用，更自然的使用多态。</p>
+<h3 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h3><p>被 abstract 修饰的方法，称为抽象方法，只有方法声明，没有方法实现。必须包含在抽象类中。<br>抽象类中不一定有抽象方法，但有抽象方法的类一定是抽象类。<br>产生继承关系后，子类必须重写父类中所有的抽象方法，否则子类还是抽象类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Animal &#123;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	public abstract void eat();&#x2F;&#x2F;抽象方法</span><br><span class="line">	public void sleep() &#123;&#x2F;&#x2F;也可包含非抽象方法</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;动物在睡&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Dog extends Animal&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;狗在吃骨头&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Cat extends Animal&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;猫在吃鱼&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Animal dog&#x3D;new Dog();</span><br><span class="line">		Animal cat&#x3D;new Cat();</span><br><span class="line">		dog.eat();</span><br><span class="line">		cat.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><h3 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h3><p>static 可以修饰属性(静态属性)和方法(静态方法)。<br>静态属性是全类所有对象共享的成员。在全类中只有一份，不因创建多个对象而产生多份。</p>
+<p>实例属性是每个对象各自持有的独立空间(多份)，对象单方面修改，不会影响其他对象。<br>静态属性是整个类共同持有的共享空间(内存中只有一份)，任何对象修改，都会影响其他对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	</span><br><span class="line">	static int count;&#x2F;&#x2F;静态属性，在内存中只有一份</span><br><span class="line">	</span><br><span class="line">	public Student() &#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void show()&#123;</span><br><span class="line">		System.out.println(name+&quot;      &quot;+age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class TestStudent &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Student s1&#x3D;new Student();</span><br><span class="line">		s1.name&#x3D;&quot;aaa&quot;;</span><br><span class="line">		s1.age&#x3D;20;</span><br><span class="line">		</span><br><span class="line">		Student s2&#x3D;new Student();</span><br><span class="line">		s2.name&#x3D;&quot;bbb&quot;;</span><br><span class="line">		s2.age&#x3D;22;</span><br><span class="line">		</span><br><span class="line">		s1.show();</span><br><span class="line">		s2.show();</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F; 调用静态  类名.静态属性名</span><br><span class="line">		&#x2F;&#x2F;Student.count&#x3D;50;</span><br><span class="line">		System.out.println(Student.count);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class TestStaticMethod&#123;</span><br><span class="line">    public static void main(String[] arg)&#123;</span><br><span class="line">        MyClass.method1();&#x2F;&#x2F;可在其他类中，通过“类名.静态方法”访问</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Class MyClass&#123;</span><br><span class="line">    public static void method1()&#123;</span><br><span class="line">        System.out.println(&quot;MyClass static method1()&quot;);</span><br><span class="line">        method2();&#x2F;&#x2F;可在本类中，通过“静态方法名”访问</span><br><span class="line">    &#125;</span><br><span class="line">    public static void method2()&#123;&#x2F;&#x2F;由static修饰的静态方法</span><br><span class="line">        System.out.println(&quot;MyClass static method2()&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>已知的静态方法<br>Arrays.copyOf();<br>Arrays.sort();<br>Math.random();<br>Math.sqrt();<br>均使用类名直接调用  </p>
+<p>静态方法允许直接访问静态成员。<br>静态方法不能直接访问非静态成员。(非静态成员属于对象的一部分，静态方法不属于对象，属于类)<br>静态方法中不允许使用 this 或者是 super 关键字。<br>静态方法可以继承，<strong>不能重写</strong>、没有多态。</p>
+<h3 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h3><p>类加载时，触发静态代码块的执行(仅一次)。<br>执行地位：静态属性初始化之后。<br>作用：可作为静态属性赋值，或必要的初始化行为。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	String name;</span><br><span class="line">	</span><br><span class="line">	&#x2F;&#x2F;静态成员  人的最大数量</span><br><span class="line">	static int max&#x3D;0;</span><br><span class="line">	</span><br><span class="line">	&#x2F;&#x2F;静态代码块：类加载时，则执行静态代码块，只执行一次。</span><br><span class="line">	static &#123;</span><br><span class="line">		max&#x3D;10000;</span><br><span class="line">		System.out.println(&quot;人的最大数量&quot;+max);</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;静态方法</span><br><span class="line">	public static void method()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TestPerson &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		&#x2F;&#x2F;Person p; 无输出</span><br><span class="line">		Person p1&#x3D;new Person();&#x2F;&#x2F;有输出</span><br><span class="line">		Person p2&#x3D;new Person();&#x2F;&#x2F;无输出</span><br><span class="line">		Person p3&#x3D;new Person();&#x2F;&#x2F;无输出，只输出一次</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类加载时调用一次。<br>类加载：<br>JVM 首次使用某个类时，需要通过 CLASSPATH 查找该类的 .class 文件。<br>将 .class 文件中对类的描述信息加载到内存中，进行保存。(如：包名、类名、父类、属性、方法、构造方法···)<br>加载时机：创建对象、创建子类对象、访问静态属性、访问静态方法、主动加载(Class.forName(“全限定名”))</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>final 修饰类，此类不能被继承，如 String、Math、System 均为 final 修饰类，不能被继承。<br>final 修饰方法，此方法不能被重写。</p>
+<p>final 修饰变量，此变量值不能被改写(常量)。所有 final 修饰的变量只能赋值一次，值不允许改变。<br>final 修饰实例变量，该实例常量不再提供默认值，必须手动赋予初始值。赋值时机：显示初始化、构造方法。注意：如果在构造方法中为实例常量赋值，必须保证所有的构造方法都能为其正确赋值。<br>final 修饰静态常量，该静态常量不再提供默认值，必须手动赋予初始值，只能赋值一次。赋值时机：显示初始化、静态代码块。<br>final 修饰基本类型：值不可改变。<br>final 修饰引用类型，地址不可改变。   </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-05T01:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%94%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-03T01:16:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java中的集合
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中的常用类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#abstract、static、final"><span class="toc-number">1.</span> <span class="toc-text">abstract、static、final</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract"><span class="toc-number">1.1.</span> <span class="toc-text">abstract</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象类"><span class="toc-number">1.1.1.</span> <span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象方法"><span class="toc-number">1.1.2.</span> <span class="toc-text">抽象方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static"><span class="toc-number">1.2.</span> <span class="toc-text">static</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态属性"><span class="toc-number">1.2.1.</span> <span class="toc-text">静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态代码块"><span class="toc-number">1.2.3.</span> <span class="toc-text">静态代码块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">1.3.</span> <span class="toc-text">final</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-01T01:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-28T06:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-05-23T03:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">《计算机网络 自顶向下方法》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-23T00:16:56.581Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -426,8 +414,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
