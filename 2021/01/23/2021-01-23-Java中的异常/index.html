@@ -6,15 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Java中的异常 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Java中的异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的异常">
+<meta property="og:url" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java中的异常">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a1.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a2.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a3.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a4.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a5.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a6.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a7.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a8.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a9.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a10.JPG">
+<meta property="og:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a11.JPG">
+<meta property="article:published_time" content="2021-01-23T08:31:43.000Z">
+<meta property="article:modified_time" content="2021-02-18T12:23:52.094Z">
 <meta property="article:author" content="wangzhuang">
+<meta property="article:tag" content="Java基本知识">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/a1.JPG">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -165,15 +182,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-2021-01-23-Java中的异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-2021-01-23-Java中的异常" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/">Java中的异常</a>
+    <h1 class="article-title" itemprop="name">
+      Java中的异常
     </h1>
   
 
@@ -186,12 +202,105 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java中的异常"><a href="#Java中的异常" class="headerlink" title="Java中的异常"></a>Java中的异常</h1>
-        
-          <a class="article-more-a" href="/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/#more">more >></a>
-        
+        <h1 id="Java中的异常"><a href="#Java中的异常" class="headerlink" title="Java中的异常"></a>Java中的异常</h1><a id="more"></a>
+<h2 id="一、异常的概念"><a href="#一、异常的概念" class="headerlink" title="一、异常的概念"></a>一、异常的概念</h2><p>概念：程序在运行过程中出现的不正常现象。出现异常不处理将会终止程序运行。<br>异常处理的必要性：任何程序都可能存在大量的未知问题，错误；如果不对这些问题进行正确处理，则可能会导致程序的中断，造成不必要的损失。<br>异常处理：Java 编程语言使用异常处理机制为程序提供了异常处理的能力。  </p>
+<h2 id="二、异常的分类"><a href="#二、异常的分类" class="headerlink" title="二、异常的分类"></a>二、异常的分类</h2><h3 id="2-1-Trowable"><a href="#2-1-Trowable" class="headerlink" title="2.1 Trowable"></a>2.1 Trowable</h3><p>Trowable:可抛出的，一切错误或者异常的父类，位于 java.lang 包中。<br>|— 错误(Error):JVM、硬件、执行逻辑错误，不能手动处理。<br>|— 异常(Exception):程序在运行和配置中产生的问题。如：<br>RuntimeException:运行时异常，可处理，可不处理。<br>CheckedException:检查时异常，必须处理。  </p>
+<h3 id="2-2-常见的运行时异常"><a href="#2-2-常见的运行时异常" class="headerlink" title="2.2 常见的运行时异常"></a>2.2 常见的运行时异常</h3><p>NullPointerException：空指针异常  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String name&#x3D;null;</span><br><span class="line">		System.out.println(name.equals(&quot;wang&quot;));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a1.JPG" alt=""> </p>
+<p>ArrayIndexOutOfBoundsException：数组越界异常 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr&#x3D;&#123;1,2,3&#125;;</span><br><span class="line">		System.out.println(arr[3]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a2.JPG" alt=""></p>
+<p>ClassCastException：类型转化异常  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Object str&#x3D;&quot;hello&quot;;</span><br><span class="line">		Integer i&#x3D;(Integer) str;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a3.JPG" alt=""></p>
+<p>NumberFormatException：数字格式化异常  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Demo1 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int n&#x3D;Integer.parseInt(&quot;100a&quot;);</span><br><span class="line">		System.out.println(n);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a4.JPG" alt=""></p>
+<p>ArithmeticException：算术异常  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int n&#x3D;10&#x2F;0;</span><br><span class="line">		System.out.println(n);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a5.JPG" alt=""></p>
+<h2 id="三、异常的产生"><a href="#三、异常的产生" class="headerlink" title="三、异常的产生"></a>三、异常的产生</h2><p>当程序运行时遇到不符合规范的代码或者结果时，会产生异常或者程序员使用 throw 关键字手动抛出异常。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Demo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num1&#x3D;input.nextInt();&#x2F;&#x2F;出现异常没有处理，程序中断</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num2&#x3D;input.nextInt();</span><br><span class="line">		int res&#x3D;num1&#x2F;num2;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">		System.out.println(&quot;程序执行完毕&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a6.JPG" alt=""></p>
+<h2 id="四、异常的传递"><a href="#四、异常的传递" class="headerlink" title="四、异常的传递"></a>四、异常的传递</h2><p>按照方法的调用链反向传递，如始终没有处理异常，最终会由 JVM 进行默认异常处理(打印堆栈跟踪信息)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Demo2 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		operation();</span><br><span class="line">	&#125;</span><br><span class="line">	public static void operation() &#123;</span><br><span class="line">		divide();</span><br><span class="line">	&#125;</span><br><span class="line">	public static void divide() &#123;</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num1&#x3D;input.nextInt();&#x2F;&#x2F;出现异常没有处理，程序中断</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num2&#x3D;input.nextInt();</span><br><span class="line">		int res&#x3D;num1&#x2F;num2;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">		System.out.println(&quot;程序执行完毕&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a7.JPG" alt=""></p>
+<h2 id="五、异常的处理"><a href="#五、异常的处理" class="headerlink" title="五、异常的处理"></a>五、异常的处理</h2><h3 id="5-1-关键字"><a href="#5-1-关键字" class="headerlink" title="5.1 关键字"></a>5.1 关键字</h3><p>try：执行可能产生异常的代码<br>catch：捕获异常，并处理<br>finally：无论是否发生异常，代码总能执行<br>throw：手动抛出异常<br>throws：声明方法可能抛出的各种异常</p>
+<h3 id="5-2-try…catch"><a href="#5-2-try…catch" class="headerlink" title="5.2 try…catch"></a>5.2 try…catch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    可能出现异常的代码</span><br><span class="line">&#125;catch&#123;</span><br><span class="line">    捕获异常并处理的相关代码，如：getMessage()、printStackTrace()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Demo3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		int res&#x3D;0;</span><br><span class="line">		try &#123;</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num1&#x3D;input.nextInt();</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num2&#x3D;input.nextInt();</span><br><span class="line">			res&#x3D;num1&#x2F;num2;</span><br><span class="line">		&#125; catch (Exception e) &#123;&#x2F;&#x2F;Exception 所有异常的父类</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">		System.out.println(&quot;程序执行完毕&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.没有发生异常，正常执行<br>2.发生异常并处理<br>3.异常类型不匹配  </p>
+<h3 id="5-3-try…catch…finally"><a href="#5-3-try…catch…finally" class="headerlink" title="5.3 try…catch…finally"></a>5.3 try…catch…finally</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    可能出现异常的代码</span><br><span class="line">&#125;catch (Exception e)&#123;</span><br><span class="line">    捕获异常并处理的相关代码，如：getMessage()、printStackTrace()</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    是否发生异常都会处理，可以释放资源等...(finally 块不执行的唯一情况就是退出 Java 虚拟机)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Demo4 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		int res&#x3D;0;</span><br><span class="line">		try &#123;</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num1&#x3D;input.nextInt();</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num2&#x3D;input.nextInt();</span><br><span class="line">			res&#x3D;num1&#x2F;num2;</span><br><span class="line">			&#x2F;&#x2F;System.exit(0); 手动退出 JVM 不会执行 finally</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;finally&#123;</span><br><span class="line">			System.out.println(&quot;释放资源&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">		System.out.println(&quot;程序执行完毕&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-多重-catch"><a href="#5-4-多重-catch" class="headerlink" title="5.4 多重 catch"></a>5.4 多重 catch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    可能出现异常的代码</span><br><span class="line">&#125;catch(异常类型1)&#123;</span><br><span class="line">    满足异常类型1执行的相关代码</span><br><span class="line">&#125;catch(异常类型2)&#123;</span><br><span class="line">    满足异常类型2执行的相关代码</span><br><span class="line">&#125;catch(异常类型3)&#123;</span><br><span class="line">    满足异常类型3执行的相关代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.子类异常在前，父类异常在后<br>2.发生异常时按顺序逐个匹配<br>3.只执行第一个与异常类型匹配的 catch 语句<br>4.finally 根据需要可写可不写  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class Demo5 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		int res&#x3D;0;</span><br><span class="line">		try &#123;</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num1&#x3D;input.nextInt();</span><br><span class="line">			System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">			int num2&#x3D;input.nextInt();</span><br><span class="line">			res&#x3D;num1&#x2F;num2;</span><br><span class="line">		&#125; catch (ArithmeticException e) &#123;</span><br><span class="line">			System.out.println(&quot;算术异常&quot;);</span><br><span class="line">		&#125; catch (InputMismatchException e) &#123;</span><br><span class="line">			System.out.println(&quot;输入不匹配异常&quot;);</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			System.out.println(&quot;未知异常&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">		System.out.println(&quot;程序执行完毕&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a8.JPG" alt=""></p>
+<p><img src="a9.JPG" alt=""></p>
+<h3 id="5-5-try…finally"><a href="#5-5-try…finally" class="headerlink" title="5.5 try…finally"></a>5.5 try…finally</h3><p>try…finally 不能捕获异常，仅仅用来当发生异常时，用来释放资源。<br>一般用在底层代码、只释放资源不做异常处理，把异常向上抛出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    可能出现异常的代码</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    是否发生异常都会执行,把异常向上抛出，可以释放资源等...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-6-声明异常-throws"><a href="#5-6-声明异常-throws" class="headerlink" title="5.6 声明异常 throws"></a>5.6 声明异常 throws</h3><p>使用原则：底层代码向上声明或者抛出异常，最上层一定要处理异常，否则程序中断。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Demo7 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		divide();</span><br><span class="line">	&#125;</span><br><span class="line">&#x2F;&#x2F; 或者</span><br><span class="line">&#x2F;&#x2F;	public static void main(String[] args) &#123;</span><br><span class="line">&#x2F;&#x2F;		try &#123;</span><br><span class="line">&#x2F;&#x2F;			divide();</span><br><span class="line">&#x2F;&#x2F;		&#125; catch (Exception e) &#123;</span><br><span class="line">&#x2F;&#x2F;			e.printStackTrace();</span><br><span class="line">&#x2F;&#x2F;		&#125;</span><br><span class="line">&#x2F;&#x2F;	&#125;</span><br><span class="line">	public static void divide() throws Exception &#123;</span><br><span class="line">		Scanner input&#x3D;new Scanner(System.in);</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num1&#x3D;input.nextInt();</span><br><span class="line">		System.out.println(&quot;请输入第一个数字&quot;);</span><br><span class="line">		int num2&#x3D;input.nextInt();</span><br><span class="line">		int res&#x3D;num1&#x2F;num2;</span><br><span class="line">		System.out.println(&quot;结果是：&quot;+res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-7-抛出异常-throw"><a href="#5-7-抛出异常-throw" class="headerlink" title="5.7 抛出异常 throw"></a>5.7 抛出异常 throw</h3><p>语法：throw 异常对象;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private String sex;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Person(String name, String sex, int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.sex &#x3D; sex;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getSex() &#123;</span><br><span class="line">		return sex;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setSex(String sex) &#123;</span><br><span class="line">		this.sex &#x3D; sex;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		if(age&gt;&#x3D;0&amp;&amp; age&lt;&#x3D;120)&#123;</span><br><span class="line">			this.age &#x3D; age;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			throw new RuntimeException(&quot;年龄不符合要求&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Person [name&#x3D;&quot; + name + &quot;, sex&#x3D;&quot; + sex + &quot;, age&#x3D;&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestPerson &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Person p&#x3D;new Person();</span><br><span class="line">		p.setAge(200);</span><br><span class="line">		System.out.println(p.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a10.JPG" alt=""></p>
+<h2 id="六、自定义异常"><a href="#六、自定义异常" class="headerlink" title="六、自定义异常"></a>六、自定义异常</h2><p>需继承自 Exception 或 Exception 的子类，常用 RuntimeException。<br>必要提供的构造方法：<br>1.无参数构造方法<br>2.String message 参数的构造方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class AgeException extends RuntimeException&#123;</span><br><span class="line"></span><br><span class="line">	public AgeException() &#123;</span><br><span class="line">		super();</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public AgeException(String arg0, Throwable arg1) &#123;</span><br><span class="line">		super(arg0, arg1);</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public AgeException(String arg0) &#123;</span><br><span class="line">		super(arg0);</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public AgeException(Throwable arg0) &#123;</span><br><span class="line">		super(arg0);</span><br><span class="line">		&#x2F;&#x2F; TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private String sex;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public Person(String name, String sex, int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.sex &#x3D; sex;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getSex() &#123;</span><br><span class="line">		return sex;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setSex(String sex) &#123;</span><br><span class="line">		this.sex &#x3D; sex;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		if(age&gt;&#x3D;0&amp;&amp; age&lt;&#x3D;120)&#123;</span><br><span class="line">			this.age &#x3D; age;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			throw new AgeException(&quot;年龄不符合要求&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Person [name&#x3D;&quot; + name + &quot;, sex&#x3D;&quot; + sex + &quot;, age&#x3D;&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class TestPerson &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Person p&#x3D;new Person();</span><br><span class="line">		p.setAge(200);</span><br><span class="line">		System.out.println(p.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="a11.JPG" alt=""></p>
+<h2 id="带有异常声明的方法重写"><a href="#带有异常声明的方法重写" class="headerlink" title="带有异常声明的方法重写"></a>带有异常声明的方法重写</h2><p>方法名、参数列表、返回值类型必须和父类相同。<br>子类的访问修饰符合父类相同或者比父类更宽。<br><strong>子类中的方法不能抛出比父类更多更宽的检查时异常。</strong></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zfb.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -211,16 +320,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangzhuang024.github.io2021/01/23/2021-01-23-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中的集合</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,701 +403,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2021-01-16-Java中的集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/">Java中的集合</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="archive-article-date">
-  	<time datetime="2021-01-16T02:23:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java中的一些集合框架"><a href="#Java中的一些集合框架" class="headerlink" title="Java中的一些集合框架"></a>Java中的一些集合框架</h1>
-        
-          <a class="article-more-a" href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/16/2021-01-16-Java%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java中的异常"><span class="toc-number">1.</span> <span class="toc-text">Java中的异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、异常的概念"><span class="toc-number">1.1.</span> <span class="toc-text">一、异常的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、异常的分类"><span class="toc-number">1.2.</span> <span class="toc-text">二、异常的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Trowable"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 Trowable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-常见的运行时异常"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 常见的运行时异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、异常的产生"><span class="toc-number">1.3.</span> <span class="toc-text">三、异常的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、异常的传递"><span class="toc-number">1.4.</span> <span class="toc-text">四、异常的传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、异常的处理"><span class="toc-number">1.5.</span> <span class="toc-text">五、异常的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-关键字"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-try…catch"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 try…catch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-try…catch…finally"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 try…catch…finally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-多重-catch"><span class="toc-number">1.5.4.</span> <span class="toc-text">5.4 多重 catch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-try…finally"><span class="toc-number">1.5.5.</span> <span class="toc-text">5.5 try…finally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-声明异常-throws"><span class="toc-number">1.5.6.</span> <span class="toc-text">5.6 声明异常 throws</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-抛出异常-throw"><span class="toc-number">1.5.7.</span> <span class="toc-text">5.7 抛出异常 throw</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、自定义异常"><span class="toc-number">1.6.</span> <span class="toc-text">六、自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带有异常声明的方法重写"><span class="toc-number">1.7.</span> <span class="toc-text">带有异常声明的方法重写</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-2021-01-11-Java的三个修饰符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/">Java的三个修饰符</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="archive-article-date">
-  	<time datetime="2021-01-11T02:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="abstract、static、final"><a href="#abstract、static、final" class="headerlink" title="abstract、static、final"></a>abstract、static、final</h1>
-        
-          <a class="article-more-a" href="/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/11/2021-01-11-Java%E7%9A%84%E4%B8%89%E4%B8%AA%E4%BF%AE%E9%A5%B0%E7%AC%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2021-01-03-Java中的常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/">Java中的常用类</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2021-01-05T03:12:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java中的常用类"><a href="#Java中的常用类" class="headerlink" title="Java中的常用类"></a>Java中的常用类</h1>
-        
-          <a class="article-more-a" href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/05/2021-01-03-Java%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-12-25-Java面向对象三大特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">Java面向对象三大特性</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-12-25T07:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h1>
-        
-          <a class="article-more-a" href="/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基本知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/25/2020-12-25-Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-12-21-I-O管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/21/2020-12-21-I-O%E7%AE%A1%E7%90%86/">I/O管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/21/2020-12-21-I-O%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-12-21T06:29:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="I-O-管理基本知识"><a href="#I-O-管理基本知识" class="headerlink" title="I/O 管理基本知识"></a>I/O 管理基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/12/21/2020-12-21-I-O%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/21/2020-12-21-I-O%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-12-12-磁盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/12/2020-12-12-%E7%A3%81%E7%9B%98/">磁盘</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/12/2020-12-12-%E7%A3%81%E7%9B%98/" class="archive-article-date">
-  	<time datetime="2020-12-12T06:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="磁盘的基本知识"><a href="#磁盘的基本知识" class="headerlink" title="磁盘的基本知识"></a>磁盘的基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/12/12/2020-12-12-%E7%A3%81%E7%9B%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/12/2020-12-12-%E7%A3%81%E7%9B%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-11-29-文件管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/29/2020-11-29-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">文件管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/29/2020-11-29-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-11-29T08:05:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件管理的基本知识"><a href="#文件管理的基本知识" class="headerlink" title="文件管理的基本知识"></a>文件管理的基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/11/29/2020-11-29-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/29/2020-11-29-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-11-18-虚拟内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/18/2020-11-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">虚拟内存</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/18/2020-11-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-11-18T08:03:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="虚拟内存基本知识及其分配管理方式"><a href="#虚拟内存基本知识及其分配管理方式" class="headerlink" title="虚拟内存基本知识及其分配管理方式"></a>虚拟内存基本知识及其分配管理方式</h1>
-        
-          <a class="article-more-a" href="/2020/11/18/2020-11-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/18/2020-11-18-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020-11-07-内存非连续分配方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/07/2020-11-07-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">内存非连续分配方式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/07/2020-11-07-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-11-07T07:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内存分配-——-非连续分配管理方式"><a href="#内存分配-——-非连续分配管理方式" class="headerlink" title="内存分配 —— 非连续分配管理方式"></a>内存分配 —— 非连续分配管理方式</h1>
-        
-          <a class="article-more-a" href="/2020/11/07/2020-11-07-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/07/2020-11-07-%E5%86%85%E5%AD%98%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -955,8 +454,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
